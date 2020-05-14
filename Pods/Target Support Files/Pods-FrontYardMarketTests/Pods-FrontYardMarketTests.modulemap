@@ -1,0 +1,6 @@
+framework module Pods_FrontYardMarketTests {
+  umbrella header "Pods-FrontYardMarketTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

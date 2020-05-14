@@ -1,0 +1,6 @@
+framework module Pods_FrontYardMarket_FrontYardMarketUITests {
+  umbrella header "Pods-FrontYardMarket-FrontYardMarketUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
