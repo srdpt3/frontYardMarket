@@ -17,7 +17,8 @@ class Item {
     var description: String!
     var price: Double!
     var imageLinks: [String]!
-    
+  
+
     init() {
     }
     

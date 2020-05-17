@@ -161,7 +161,7 @@
                     <navigationItem key="navigationItem" id="Pxy-3F-9LE">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bmq-Ae-4ds">
                             <connections>
-                                <segue destination="eXj-Mg-w7w" kind="show" id="V3t-8i-02Q"/>
+                                <segue destination="eXj-Mg-w7w" kind="show" identifier="itemToAddItems" id="V3t-8i-02Q"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -212,6 +212,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="esb-nV-iI1" firstAttribute="leading" secondItem="GR3-Ux-rp9" secondAttribute="leading" constant="20" id="1Xz-Tq-abh"/>
                             <constraint firstItem="GR3-Ux-rp9" firstAttribute="trailing" secondItem="Qpz-3j-pRH" secondAttribute="trailing" constant="20" id="61p-VL-J7l"/>
@@ -226,11 +227,14 @@
                             <constraint firstItem="66l-D5-xhv" firstAttribute="leading" secondItem="GR3-Ux-rp9" secondAttribute="leading" constant="20" id="wF3-hM-OsV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GR3-Ux-rp9"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ogH-v0-ZEq" appends="YES" id="u3g-pY-ykw"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Add Item" id="fcQ-Vb-0Sl">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="cLg-i1-V3V">
                             <connections>
-                                <action selector="doneBarButtonItemPressed:" destination="eXj-Mg-w7w" id="00x-4t-OG0"/>
+                                <action selector="doneButton:" destination="eXj-Mg-w7w" id="ywn-sY-PMf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -242,6 +246,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cY0-tT-vgP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ogH-v0-ZEq">
+                    <connections>
+                        <action selector="tapBackground:" destination="eXj-Mg-w7w" id="6Fg-3D-mbr"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2295.6521739130435" y="-629.46428571428567"/>
         </scene>

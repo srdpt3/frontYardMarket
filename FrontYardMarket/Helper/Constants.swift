@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+public let kFILEREFERENCE = "gs://frontyardmarket.appspot.com"
 
 //Firebase Headers
 public let kUSER_PATH = "User"
