@@ -100,29 +100,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="os2-67-dOi">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="os2-67-dOi">
                                 <rect key="frame" x="0.0" y="44" width="414" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="7zR-Ne-Lsq"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SPL-1f-Tfg">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SPL-1f-Tfg">
                                     <size key="itemSize" width="414" height="211"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fhh-2n-dlA">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="211"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="fhh-2n-dlA" customClass="ImageViewCollectionViewCell" customModule="FrontYardMarket" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-5.5" width="414" height="211"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="luo-I9-mZj">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="211"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XyE-Sw-HW4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="211"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="XyE-Sw-HW4" firstAttribute="top" secondItem="luo-I9-mZj" secondAttribute="top" id="YL7-vG-I1c"/>
+                                                <constraint firstAttribute="bottom" secondItem="XyE-Sw-HW4" secondAttribute="bottom" id="fIg-iG-iPO"/>
+                                                <constraint firstAttribute="trailing" secondItem="XyE-Sw-HW4" secondAttribute="trailing" id="tx0-FL-cry"/>
+                                                <constraint firstItem="XyE-Sw-HW4" firstAttribute="leading" secondItem="luo-I9-mZj" secondAttribute="leading" id="xb7-Sb-rWc"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="211"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="XyE-Sw-HW4" id="bZy-nz-J0h"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="IhU-OZ-jjc" id="iQW-7y-C8s"/>
+                                    <outlet property="delegate" destination="IhU-OZ-jjc" id="Roz-fg-dpw"/>
+                                </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSt-Kx-Byf">
                                 <rect key="frame" x="20" y="252" width="374" height="33.5"/>
@@ -192,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKG-fd-phc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1000.0000000000001" y="29.464285714285712"/>
+            <point key="canvasLocation" x="1012" y="44"/>
         </scene>
         <!--Items Table View Controller-->
         <scene sceneID="Lkx-me-4ZE">
