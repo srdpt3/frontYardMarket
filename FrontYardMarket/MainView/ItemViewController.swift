@@ -20,8 +20,8 @@ class ItemViewController: UIViewController {
     var item: Item!
     var itemImages: [UIImage] = []
     let hud = JGProgressHUD(style: .dark)
-
-
+    
+    
     private let sectionInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
     private let cellHeight : CGFloat = 196.0
     private let itemsPerRow: CGFloat = 1
@@ -30,10 +30,10 @@ class ItemViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         downloadIm()
-
+        
         self.navigationItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(self.backAction))]
         
-        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "basket"), style: .plain, target: self, action: #selector(self.addToBasketButtonPressed))]
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "addToBasket"), style: .plain, target: self, action: #selector(self.addToBasketButtonPressed))]
         // Do any additional setup after loading the view.
     }
     
@@ -64,7 +64,16 @@ class ItemViewController: UIViewController {
     
     @objc func addToBasketButtonPressed() {
         
-        print("add to basket", item.name)
+        downloadBasketFromFirestore("1234") { (basket) in
+            
+            if basket == nil {
+                self.createNewBasket()
+            } else {
+                basket!.itemIds.append(self.item.id)
+                self.updateBasket(basket: basket!, withValues: [kITEMIDS : basket!.itemIds, kOWNERID: 1234])
+            }
+        }
+        
     }
     
     
@@ -77,21 +86,51 @@ class ItemViewController: UIViewController {
         
         return currencyFormatter.string(from: NSNumber(value: number))!
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
+    
+    private func createNewBasket() {
+        
+        let newBasket = Basket()
+        newBasket.id = UUID().uuidString
+        newBasket.ownerId = "1234"
+        newBasket.itemIds = [self.item.id]
+        saveBasketToFirestore(newBasket)
+        
+        self.hud.textLabel.text = "Added to basket!"
+        self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+        self.hud.show(in: self.view)
+        self.hud.dismiss(afterDelay: 2.0)
+    }
+    
+    private func updateBasket(basket: Basket, withValues: [String : Any]) {
+        
+        updateBasketInFirestore(basket, withValues: withValues) { (error) in
+            
+            if error != nil {
+                
+                self.hud.textLabel.text = "Error: \(error!.localizedDescription)"
+                self.hud.indicatorView = JGProgressHUDErrorIndicatorView()
+                self.hud.show(in: self.view)
+                self.hud.dismiss(afterDelay: 2.0)
+                
+                print("error updating basket", error!.localizedDescription)
+            } else {
+                
+                self.hud.textLabel.text = "Added to basket!"
+                self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+                self.hud.show(in: self.view)
+                self.hud.dismiss(afterDelay: 2.0)
+            }
+        }
+    }
+    
+    
     
 }
 
 
 extension ItemViewController : UICollectionViewDataSource, UICollectionViewDelegate {
-
+    
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
