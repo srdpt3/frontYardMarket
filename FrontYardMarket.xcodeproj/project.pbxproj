@@ -39,6 +39,8 @@
 		11F4537E247A073000A41C50 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F4537D247A073000A41C50 /* EditProfileViewController.swift */; };
 		11F45380247A074300A41C50 /* PurchasedHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F4537F247A074300A41C50 /* PurchasedHistoryTableViewController.swift */; };
 		11F45382247A074800A41C50 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F45381247A074800A41C50 /* SearchViewController.swift */; };
+		11F45384247ADB9E00A41C50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F45383247ADB9D00A41C50 /* ContentView.swift */; };
+		11F45387247ADDC800A41C50 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F45386247ADDC800A41C50 /* LoginView.swift */; };
 		4A5362DD9F9BAC1F46C055E5 /* Pods_FrontYardMarket_FrontYardMarketUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C71F7F5276E67E92E31C15E /* Pods_FrontYardMarket_FrontYardMarketUITests.framework */; };
 		8A8AF9ADD57A6BF6C451456D /* Pods_FrontYardMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 421B906B878E7BF2E59FFB13 /* Pods_FrontYardMarket.framework */; };
 		8EAF734DE68426ECB37BEC46 /* Pods_FrontYardMarketTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41654CF0106F82FF6BCF860B /* Pods_FrontYardMarketTests.framework */; };
@@ -101,6 +103,8 @@
 		11F4537D247A073000A41C50 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		11F4537F247A074300A41C50 /* PurchasedHistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasedHistoryTableViewController.swift; sourceTree = "<group>"; };
 		11F45381247A074800A41C50 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		11F45383247ADB9D00A41C50 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		11F45386247ADDC800A41C50 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		32A6EADB67583B3EFCD47EB2 /* Pods-FrontYardMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrontYardMarket.debug.xcconfig"; path = "Target Support Files/Pods-FrontYardMarket/Pods-FrontYardMarket.debug.xcconfig"; sourceTree = "<group>"; };
 		3DB5267FCD19FF5F017CF069 /* Pods-FrontYardMarketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrontYardMarketTests.debug.xcconfig"; path = "Target Support Files/Pods-FrontYardMarketTests/Pods-FrontYardMarketTests.debug.xcconfig"; sourceTree = "<group>"; };
 		41654CF0106F82FF6BCF860B /* Pods_FrontYardMarketTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrontYardMarketTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +168,7 @@
 		11A0964F246C4D460079762A /* FrontYardMarket */ = {
 			isa = PBXGroup;
 			children = (
+				11F45385247ADD0700A41C50 /* SwiftUIView */,
 				11A09690246C98CC0079762A /* MainView */,
 				11A0968C246C955F0079762A /* CustomCell */,
 				11A0968F246C98770079762A /* Model */,
@@ -247,6 +252,15 @@
 				11F453792479D97F00A41C50 /* WelcomeViewController.swift */,
 			);
 			path = MainView;
+			sourceTree = "<group>";
+		};
+		11F45385247ADD0700A41C50 /* SwiftUIView */ = {
+			isa = PBXGroup;
+			children = (
+				11F45383247ADB9D00A41C50 /* ContentView.swift */,
+				11F45386247ADDC800A41C50 /* LoginView.swift */,
+			);
+			path = SwiftUIView;
 			sourceTree = "<group>";
 		};
 		62866DF400E3CE3BB6C047ED /* Pods */ = {
@@ -526,6 +540,7 @@
 				11F452EA2476FB6600A41C50 /* Basket.swift in Sources */,
 				11A0968A246C870E0079762A /* FirebaseReference.swift in Sources */,
 				11A0965B246C4D460079762A /* FrontYardMarket.xcdatamodeld in Sources */,
+				11F45384247ADB9E00A41C50 /* ContentView.swift in Sources */,
 				11A09698246CD7980079762A /* AddItemViewController.swift in Sources */,
 				11A0972C24721CD50079762A /* ItemTableViewCell.swift in Sources */,
 				11F453702478699D00A41C50 /* BasketViewController.swift in Sources */,
@@ -533,6 +548,7 @@
 				11713C5C24761E6100002ACA /* ImageViewCollectionViewCell.swift in Sources */,
 				11A09651246C4D460079762A /* AppDelegate.swift in Sources */,
 				11A09696246CC33F0079762A /* Item.swift in Sources */,
+				11F45387247ADDC800A41C50 /* LoginView.swift in Sources */,
 				11A096AA2470BDCC0079762A /* Downloader.swift in Sources */,
 				11A09686246C82060079762A /* CategoryCollectionViewCell.swift in Sources */,
 				11A09653246C4D460079762A /* SceneDelegate.swift in Sources */,
