@@ -18,7 +18,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     func generateCell(_ category: Category) {
         
-        nameLabel.text = category.name
+//        nameLabel.text = category.name
         imageView.image = category.image
     }
     
