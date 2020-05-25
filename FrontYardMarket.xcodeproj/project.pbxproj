@@ -41,6 +41,8 @@
 		11F45382247A074800A41C50 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F45381247A074800A41C50 /* SearchViewController.swift */; };
 		11F45384247ADB9E00A41C50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F45383247ADB9D00A41C50 /* ContentView.swift */; };
 		11F45387247ADDC800A41C50 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F45386247ADDC800A41C50 /* LoginView.swift */; };
+		11F45389247C31F300A41C50 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F45388247C31F300A41C50 /* CategoryView.swift */; };
+		11F4538B247C3DAC00A41C50 /* Observables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F4538A247C3DAC00A41C50 /* Observables.swift */; };
 		4A5362DD9F9BAC1F46C055E5 /* Pods_FrontYardMarket_FrontYardMarketUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C71F7F5276E67E92E31C15E /* Pods_FrontYardMarket_FrontYardMarketUITests.framework */; };
 		8A8AF9ADD57A6BF6C451456D /* Pods_FrontYardMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 421B906B878E7BF2E59FFB13 /* Pods_FrontYardMarket.framework */; };
 		8EAF734DE68426ECB37BEC46 /* Pods_FrontYardMarketTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41654CF0106F82FF6BCF860B /* Pods_FrontYardMarketTests.framework */; };
@@ -105,6 +107,8 @@
 		11F45381247A074800A41C50 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		11F45383247ADB9D00A41C50 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		11F45386247ADDC800A41C50 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		11F45388247C31F300A41C50 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		11F4538A247C3DAC00A41C50 /* Observables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observables.swift; sourceTree = "<group>"; };
 		32A6EADB67583B3EFCD47EB2 /* Pods-FrontYardMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrontYardMarket.debug.xcconfig"; path = "Target Support Files/Pods-FrontYardMarket/Pods-FrontYardMarket.debug.xcconfig"; sourceTree = "<group>"; };
 		3DB5267FCD19FF5F017CF069 /* Pods-FrontYardMarketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrontYardMarketTests.debug.xcconfig"; path = "Target Support Files/Pods-FrontYardMarketTests/Pods-FrontYardMarketTests.debug.xcconfig"; sourceTree = "<group>"; };
 		41654CF0106F82FF6BCF860B /* Pods_FrontYardMarketTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrontYardMarketTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,6 +263,8 @@
 			children = (
 				11F45383247ADB9D00A41C50 /* ContentView.swift */,
 				11F45386247ADDC800A41C50 /* LoginView.swift */,
+				11F45388247C31F300A41C50 /* CategoryView.swift */,
+				11F4538A247C3DAC00A41C50 /* Observables.swift */,
 			);
 			path = SwiftUIView;
 			sourceTree = "<group>";
@@ -546,8 +552,10 @@
 				11F453702478699D00A41C50 /* BasketViewController.swift in Sources */,
 				11F4537A2479D97F00A41C50 /* WelcomeViewController.swift in Sources */,
 				11713C5C24761E6100002ACA /* ImageViewCollectionViewCell.swift in Sources */,
+				11F4538B247C3DAC00A41C50 /* Observables.swift in Sources */,
 				11A09651246C4D460079762A /* AppDelegate.swift in Sources */,
 				11A09696246CC33F0079762A /* Item.swift in Sources */,
+				11F45389247C31F300A41C50 /* CategoryView.swift in Sources */,
 				11F45387247ADDC800A41C50 /* LoginView.swift in Sources */,
 				11A096AA2470BDCC0079762A /* Downloader.swift in Sources */,
 				11A09686246C82060079762A /* CategoryCollectionViewCell.swift in Sources */,

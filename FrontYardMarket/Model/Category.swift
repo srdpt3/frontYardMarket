@@ -28,6 +28,7 @@ class Category {
         id = _dictionary[kOBJECTID] as! String
         name = _dictionary[kNAME] as! String
         image = UIImage(named: _dictionary[kIMAGENAME] as? String ?? "")
+        imageName = _dictionary[kIMAGENAME] as! String
     }
 }
 

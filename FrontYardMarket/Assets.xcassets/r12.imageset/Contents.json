@@ -1,16 +1,15 @@
 {
   "images" : [
     {
+      "filename" : "r12.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "profile@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "profile@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

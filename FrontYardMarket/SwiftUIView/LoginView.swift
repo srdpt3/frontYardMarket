@@ -16,17 +16,17 @@ struct LoginView: View {
         
         ZStack{
             
-            LinearGradient(gradient: .init(colors: [Color("Color"),Color("Color1"),Color("Color2")]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
+            LinearGradient(gradient: .init(colors: [Color("Color"),Color("Color"),Color("Color")]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
             
             if UIScreen.main.bounds.height > 800{
                 
-                Home()
+                LoginHome()
             }
             else{
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     
-                    Home()
+                    LoginHome()
                 }
             }
         }
@@ -39,7 +39,7 @@ struct LoginView_Previews: PreviewProvider {
     }
 }
 
-struct  Home : View {
+struct  LoginHome : View {
     @State var index = 0;
     var body: some View {
         VStack {
@@ -208,6 +208,7 @@ struct Login : View {
                         if  isEmailVerified {
 //                            self.dismissView()
                             print("Email is verified")
+                            CustomController()
                         } else {
 //                            self.resendButtonOutlet.isHidden = false
                             
@@ -339,5 +340,21 @@ struct SignUp : View {
                 .padding(.bottom, -40)
                 .shadow(radius: 15)
         }
+    }
+}
+
+
+struct CustomController : UIViewControllerRepresentable {
+    func makeUIViewController(context: UIViewControllerRepresentableContext<CustomController>) ->
+    UIViewController{
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let controller = storyboard.instantiateViewController(identifier: "tabBarView")
+        return controller
+            
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: UIViewControllerRepresentableContext<CustomController>) {
+        
     }
 }
