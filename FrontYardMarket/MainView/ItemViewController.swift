@@ -8,6 +8,7 @@
 
 import UIKit
 import JGProgressHUD
+import SwiftUI
 
 class ItemViewController: UIViewController {
     
@@ -84,9 +85,19 @@ class ItemViewController: UIViewController {
     
     private func showLoginView(){
         
-        let loginView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "loginView")
+//        if #available(iOS 13.0, *){
+//            let loginViewUI = LoginView()
+//            let host = UIHostingController(rootView: loginViewUI)
+//            navigationController?.pushViewController(host, animated: true)
+//
+//        }else{
+            
+            let loginView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "loginView")
+            
+            self.present(loginView, animated: true, completion: nil)
+//        }
         
-        self.present(loginView, animated: true, completion: nil)
+        
         
     }
     

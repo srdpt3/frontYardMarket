@@ -16,7 +16,7 @@ struct LoginView: View {
         
         ZStack{
             
-            LinearGradient(gradient: .init(colors: [Color("Color"),Color("Color"),Color("Color")]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
+//            LinearGradient(gradient: .init(colors: [Color.whi,Color("Color"),Color("Color")]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
             
             if UIScreen.main.bounds.height > 800{
                 

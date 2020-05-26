@@ -161,7 +161,7 @@
             </objects>
             <point key="canvasLocation" x="-2343" y="477"/>
         </scene>
-        <!--View Controller-->
+        <!--Search-->
         <scene sceneID="1e2-3p-6Dg">
             <objects>
                 <viewController id="Dl1-uH-GK1" sceneMemberID="viewController">
@@ -171,7 +171,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Lst-p9-RFu"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="57H-KQ-Q2q"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="Search" id="57H-KQ-Q2q"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nVh-Nn-k63" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -558,7 +558,7 @@
         <scene sceneID="sF0-4t-KGl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZBj-Bo-5Ba" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Category" image="homeIcon" id="Qns-Do-2Ox"/>
+                    <tabBarItem key="tabBarItem" title="Category" image="Home" id="Qns-Do-2Ox"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fpf-vy-FLz">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -577,7 +577,7 @@
         <scene sceneID="o0x-zd-GUN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ahe-R3-6mX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Basket" image="basket" id="wa3-HC-UDv"/>
+                    <tabBarItem key="tabBarItem" title="Basket" image="Bag" id="wa3-HC-UDv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zJy-8f-s3a">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -590,7 +590,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QEh-u0-S4X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3165" y="477"/>
+            <point key="canvasLocation" x="-3036" y="482"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="uGI-Hz-WcG">
@@ -1057,7 +1057,7 @@
         <scene sceneID="OLv-Ua-fnG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Js5-oW-i8e" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="8qj-iG-IQq"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Profile" id="8qj-iG-IQq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xzV-tU-08w">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1074,10 +1074,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="basket" width="30" height="30"/>
+        <image name="Bag" width="22" height="19"/>
+        <image name="Home" width="19" height="21"/>
+        <image name="Profile" width="21" height="20"/>
+        <image name="Search" width="21" height="20"/>
         <image name="camera" width="75" height="75"/>
-        <image name="homeIcon" width="30" height="30"/>
         <image name="imagePlaceholder" width="150" height="113.5"/>
-        <image name="profile" width="30" height="30"/>
     </resources>
 </document>
