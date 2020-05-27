@@ -14,7 +14,6 @@ class getData : ObservableObject{
     @Published var datas = [Category]()
     //    @Published var top = [Topdatatype]()
     @Published var Grid : [Int] = []
-    
     init() {
         
         FirebaseReference(.Category).getDocuments { (snapshot, error) in
@@ -50,6 +49,16 @@ class getData : ObservableObject{
         }
         
         
+        
+    }
+    
+    func loadItems(category : Category){
+//        downloadItemsFromFirebase(category.id) { (item) in
+//            //            print(item)
+//            print(self.itemArray.count)
+//            self.itemArray = item
+//            
+//        }
         
     }
 }

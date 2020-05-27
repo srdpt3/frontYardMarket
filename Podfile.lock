@@ -355,6 +355,11 @@ PODS:
     - CardIO (~> 5.4.1)
   - PayPal-iOS-SDK/Core (2.18.1)
   - PromisesObjC (1.2.8)
+  - SDWebImage (5.8.0):
+    - SDWebImage/Core (= 5.8.0)
+  - SDWebImage/Core (5.8.0)
+  - SDWebImageSwiftUI (1.4.0):
+    - SDWebImage (~> 5.7)
 
 DEPENDENCIES:
   - EmptyDataSet-Swift
@@ -367,6 +372,7 @@ DEPENDENCIES:
   - JGProgressHUD
   - NVActivityIndicatorView/AppExtension
   - PayPal-iOS-SDK
+  - SDWebImageSwiftUI
 
 SPEC REPOS:
   trunk:
@@ -399,6 +405,8 @@ SPEC REPOS:
     - NVActivityIndicatorView
     - PayPal-iOS-SDK
     - PromisesObjC
+    - SDWebImage
+    - SDWebImageSwiftUI
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -430,7 +438,9 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   PayPal-iOS-SDK: 70d56697aef502c130b9840e31dea5c6b8a350e1
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
+  SDWebImageSwiftUI: 034806fc7e19e0a36157fb8ecb9fc0437cc75230
 
-PODFILE CHECKSUM: 1098d40bb3342af5977db0bb4a12ddea20a83e79
+PODFILE CHECKSUM: 3653d4e7ff49955faa2c04271a05d5f4bd1ad290
 
 COCOAPODS: 1.8.4

@@ -14,6 +14,8 @@ target 'FrontYardMarket' do
   pod 'NVActivityIndicatorView/AppExtension'
   pod 'JGProgressHUD'
   pod 'PayPal-iOS-SDK'
+  pod 'SDWebImageSwiftUI'
+
   # Pods for FrontYardMarket
 
   target 'FrontYardMarketTests' do
