@@ -11,14 +11,9 @@ import SDWebImageSwiftUI
 
 struct ItemView: View {
     var category : Category!
-    //    @State var item : [Item] = []
     @ObservedObject var itemArray : getCategoryItem
-    //    init(category : Category){
-    //        loadItems(category: category)
-    //        print(self.itemArray.count)
-    //    }
-    //
-    
+
+
     init(category : Category){
         itemArray = getCategoryItem(category: category)
     }
@@ -60,62 +55,25 @@ struct ItemViewHome : View {
             ScrollView(.vertical, showsIndicators: false, content: {
                 
                 VStack{
-                    
-                    // now going to do strechy header....
-                    // follow me...
-                    
-                    //                    GeometryReader{g in
-                    //
-                    //                        Image("poster")
-                    //                        .resizable()
-                    //                        // fixing the view to the top will give strechy effect...
-                    //                        // increasing height by drag amount....
-                    //                        .offset(y: g.frame(in: .global).minY > 0 ? -g.frame(in: .global).minY : 0)
-                    //                            .frame(height: g.frame(in: .global).minY > 0 ? UIScreen.main.bounds.height / 4.4 + g.frame(in: .global).minY  : UIScreen.main.bounds.height / 4.4)
-                    //                        .onReceive(self.time) { (_) in
-                    //
-                    //                            // its not a timer...
-                    //                            // for tracking the image is scrolled out or not...
-                    //
-                    //                            let y = g.frame(in: .global).minY
-                    //
-                    //                            if -y > (UIScreen.main.bounds.height / 4.4) - 100{
-                    //
-                    //                                withAnimation{
-                    //
-                    //                                    self.show = true
-                    //                                }
-                    //                            }
-                    //                            else{
-                    //
-                    //                                withAnimation{
-                    //
-                    //                                    self.show = false
-                    //                                }
-                    //                            }
-                    //
-                    //                        }
-                    //
-                    //                    }
-                    //                    // fixing default height...
-                    //                        .frame(height: UIScreen.main.bounds.height / 4.4)
+
                     
                     VStack{
                         
                         HStack{
-                            Image("gucci")
+                            Image("prada")
                                 .resizable()
-                                .frame(width: 30, height: 30)
+                                .frame(width: 40, height: 40).cornerRadius(20)
                             // for dark mode adaption...
                             //                                .foregroundColor(.primary)
-                            Text("Chanel")
+                            Text("Prada")
                                 .font(.title)
-                                .fontWeight(.bold).cornerRadius(15)
+                                .fontWeight(.bold)
                             
                             Spacer()
                             
                             Button(action: {
                                 print(self.item.count)
+                                self.show.toggle()
                             }) {
                                 
                                 Text("Add")
@@ -154,9 +112,9 @@ struct ItemViewHome : View {
 // CardView...
 
 struct CardView : View {
-    
+    @State var show  = false
+
     var data : Item
-    
     var body: some View{
         
         HStack(alignment: .top, spacing: 20){
@@ -174,7 +132,7 @@ struct CardView : View {
                 HStack(spacing: 12){
                     
                     Button(action: {
-                        
+                        self.show.toggle()
                     }) {
                         
                         Text("View")
@@ -185,8 +143,8 @@ struct CardView : View {
                             .background(Color.primary.opacity(0.06))
                             .clipShape(Capsule())
                     }
-                    
-                    Text(convertToCurrency(self.data.price))
+
+                    Text("$" + String(format:"%.1f", self.data.price))
                         .font(.caption)
                         .foregroundColor(.gray)
                 }
@@ -194,17 +152,11 @@ struct CardView : View {
             }
             
             Spacer(minLength: 0)
+        }.sheet(isPresented: $show) {
+            ItemDetailView(item: self.data)
         }
     }
-    func convertToCurrency(_ number: Double) -> String {
-           
-           let currencyFormatter = NumberFormatter()
-           currencyFormatter.usesGroupingSeparator = true
-           currencyFormatter.numberStyle = .currency
-           currencyFormatter.locale = Locale.current
-           
-           return currencyFormatter.string(from: NSNumber(value: number))!
-    }
+
     
 }
 

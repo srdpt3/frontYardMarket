@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1103D1D0247F349B0068C5A5 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103D1CF247F349B0068C5A5 /* ItemDetailView.swift */; };
+		1103D1D2247F47CD0068C5A5 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103D1D1247F47CD0068C5A5 /* Utils.swift */; };
+		1103D1D4247F4D080068C5A5 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103D1D3247F4D080068C5A5 /* MapView.swift */; };
 		11713C5C24761E6100002ACA /* ImageViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11713C5B24761E6100002ACA /* ImageViewCollectionViewCell.swift */; };
 		11A09651246C4D460079762A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A09650246C4D460079762A /* AppDelegate.swift */; };
 		11A09653246C4D460079762A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A09652246C4D460079762A /* SceneDelegate.swift */; };
@@ -68,6 +71,9 @@
 
 /* Begin PBXFileReference section */
 		0C71F7F5276E67E92E31C15E /* Pods_FrontYardMarket_FrontYardMarketUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrontYardMarket_FrontYardMarketUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1103D1CF247F349B0068C5A5 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		1103D1D1247F47CD0068C5A5 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		1103D1D3247F4D080068C5A5 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		11713C5B24761E6100002ACA /* ImageViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		11A0964D246C4D460079762A /* FrontYardMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrontYardMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A09650246C4D460079762A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +219,7 @@
 		11A0968B246C8EE50079762A /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				1103D1D1247F47CD0068C5A5 /* Utils.swift */,
 				11A09689246C870E0079762A /* FirebaseReference.swift */,
 				11A09691246C9A9E0079762A /* Constants.swift */,
 				11A096A92470BDCC0079762A /* Downloader.swift */,
@@ -263,11 +270,13 @@
 		11F45385247ADD0700A41C50 /* SwiftUIView */ = {
 			isa = PBXGroup;
 			children = (
+				1103D1D3247F4D080068C5A5 /* MapView.swift */,
 				11F45383247ADB9D00A41C50 /* ContentView.swift */,
 				11F45386247ADDC800A41C50 /* LoginView.swift */,
 				11F45388247C31F300A41C50 /* CategoryView.swift */,
 				11F4538A247C3DAC00A41C50 /* Observables.swift */,
 				11F4538C247DBB6D00A41C50 /* ItemView.swift */,
+				1103D1CF247F349B0068C5A5 /* ItemDetailView.swift */,
 			);
 			path = SwiftUIView;
 			sourceTree = "<group>";
@@ -544,9 +553,11 @@
 				11A09655246C4D460079762A /* ViewController.swift in Sources */,
 				11F45380247A074300A41C50 /* PurchasedHistoryTableViewController.swift in Sources */,
 				11F45382247A074800A41C50 /* SearchViewController.swift in Sources */,
+				1103D1D4247F4D080068C5A5 /* MapView.swift in Sources */,
 				11A09694246CC1720079762A /* ItemsTableViewController.swift in Sources */,
 				11F4537E247A073000A41C50 /* EditProfileViewController.swift in Sources */,
 				11F452EA2476FB6600A41C50 /* Basket.swift in Sources */,
+				1103D1D0247F349B0068C5A5 /* ItemDetailView.swift in Sources */,
 				11A0968A246C870E0079762A /* FirebaseReference.swift in Sources */,
 				11A0965B246C4D460079762A /* FrontYardMarket.xcdatamodeld in Sources */,
 				11F45384247ADB9E00A41C50 /* ContentView.swift in Sources */,
@@ -563,6 +574,7 @@
 				11F45387247ADDC800A41C50 /* LoginView.swift in Sources */,
 				11A096AA2470BDCC0079762A /* Downloader.swift in Sources */,
 				11A09686246C82060079762A /* CategoryCollectionViewCell.swift in Sources */,
+				1103D1D2247F47CD0068C5A5 /* Utils.swift in Sources */,
 				11A09653246C4D460079762A /* SceneDelegate.swift in Sources */,
 				11A09692246C9A9E0079762A /* Constants.swift in Sources */,
 				11A0968E246C98720079762A /* Category.swift in Sources */,
