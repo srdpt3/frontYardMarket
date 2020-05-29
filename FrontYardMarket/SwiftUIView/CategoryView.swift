@@ -11,7 +11,6 @@ import SwiftUI
 
 struct CategoryView: View {
     @ObservedObject var data = getData()
-    
     let width: CGFloat = (UIScreen.main.bounds.width - 24) / 3
     var body: some View {
         Home2(data:  self.$data.datas, Grid:  self.$data.Grid).edgesIgnoringSafeArea(.all)

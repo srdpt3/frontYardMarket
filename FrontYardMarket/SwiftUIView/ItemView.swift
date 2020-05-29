@@ -105,7 +105,9 @@ struct ItemViewHome : View {
             //                TopView()
             //            }
         })
-            .edgesIgnoringSafeArea(.bottom)
+            .edgesIgnoringSafeArea(.bottom).sheet(isPresented: $show){
+                AddItemView()
+        }
     }
 }
 
@@ -153,7 +155,7 @@ struct CardView : View {
             
             Spacer(minLength: 0)
         }.sheet(isPresented: $show) {
-            ItemDetailView(item: self.data)
+            ItemDetailView(item: self.data, show: self.$show)
         }
     }
 

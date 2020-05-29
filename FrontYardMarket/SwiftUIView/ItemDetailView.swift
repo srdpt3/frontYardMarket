@@ -12,9 +12,10 @@ import MapKit
 
 struct ItemDetailView: View {
     @State var item : Item!
+    @Binding var show : Bool
     
     var body: some View {
-        itemDetailHome(item: self.$item)
+        itemDetailHome(item: self.$item, show: self.$show)
     }
 }
 
@@ -33,8 +34,9 @@ struct itemDetailHome : View {
     @State var width = UIScreen.main.bounds.width
     @State private var centerCoordinate = CLLocationCoordinate2D()
     @State private var locations = [MKPointAnnotation]()
-    
     @Binding var item : Item!
+    @Binding var show : Bool
+
     var body: some View{
         
         VStack{
@@ -52,15 +54,15 @@ struct itemDetailHome : View {
                 HStack{
                     
                     Button(action: {
-                        
+                        self.show.toggle()
                     }) {
                         
-                        Image("back")
-                            .renderingMode(.original)
-                            .padding()
+                        Image("back2")
+                            .renderingMode(.original).foregroundColor(Color.white).padding()
+                           
                     }
                     .padding(.leading, 10)
-                    .padding(.top, 20)
+                    .padding(.top, 10).colorMultiply(Color.white)
                     
                     Spacer()
                     
@@ -72,10 +74,10 @@ struct itemDetailHome : View {
                             .renderingMode(.original)
                             .padding()
                     }
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, self.height > 800 ? 20 : 15)
+                    .padding(.horizontal, 5)
+                    .padding(.vertical, self.height > 800 ? 15 : 10)
                     .background(Color.white)
-                    .clipShape(CustomShape(corner: .bottomLeft, radii: self.height > 800 ? 35 : 30))
+                    .clipShape(CustomShape(corner: .bottomLeft, radii: self.height > 800 ? 30 : 25))
                 }
                 
             }
