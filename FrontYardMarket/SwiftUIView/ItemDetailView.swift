@@ -48,7 +48,7 @@ struct itemDetailHome : View {
                     //                    Image(self.color == 0 ? "lamp1" : "lamp2")
                     //                    .resizable()
                     //                    .frame(height: 300)
-                    AnimatedImage(url: URL(string: self.item.imageLinks.first!)).resizable().frame( height: 300)
+                    AnimatedImage(url: URL(string: self.item.imageLinks.first!)).resizable().frame( height: 300).animation(Animation.easeOut(duration: 0.6).delay(0.1))
                 }
                 
                 HStack{
@@ -92,7 +92,7 @@ struct itemDetailHome : View {
                         
                         Text(self.item.name)
                             .font(.title)
-                            .fontWeight(.bold)
+                            .fontWeight(.bold).animation(Animation.easeOut(duration: 0.6).delay(0.3))
                         
                         Spacer()
                         
@@ -116,7 +116,7 @@ struct itemDetailHome : View {
                         .multilineTextAlignment(.leading)
                         .foregroundColor(.gray)
                         .padding(.horizontal, 30)
-                        .padding(.top,20)
+                        .padding(.top,20).animation(Animation.easeOut(duration: 0.6).delay(0.5))
                     
                     Spacer(minLength: 0)
                   

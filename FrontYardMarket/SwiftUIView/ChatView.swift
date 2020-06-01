@@ -83,7 +83,7 @@ struct ChatViewSub: View{
                     
                 }
             }
-            
+            Spacer()
             HStack{
                 
                 HStack(spacing : 8){
@@ -135,6 +135,7 @@ struct ChatViewSub: View{
         .sheet(isPresented: $chatViewModel.showImagePicker, onDismiss: {
             self.sendPhoto()
         }) {
+            // ImagePickerController()
             ImagePicker(showImagePicker: self.$chatViewModel.showImagePicker, pickedImage: self.$chatViewModel.image, imageData: self.$chatViewModel.imageData)
         }
             

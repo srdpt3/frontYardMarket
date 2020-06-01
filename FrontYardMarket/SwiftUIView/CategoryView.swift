@@ -11,6 +11,7 @@ import SwiftUI
 
 struct CategoryView: View {
     @ObservedObject var data = getData()
+    
     let width: CGFloat = (UIScreen.main.bounds.width - 24) / 3
     var body: some View {
         Home2(data:  self.$data.datas, Grid:  self.$data.Grid).edgesIgnoringSafeArea(.all)
@@ -29,36 +30,36 @@ struct Home2 : View {
     
     @Binding var data : [Category]
     @Binding var Grid : [Int]
-    
     var body : some View{
         
         VStack(spacing: 0){
             
             VStack{
                 if !self.Grid.isEmpty{
-                   
+                    
                     ZStack{
-                            HStack{
-                                Spacer()
-                                
-                                Button(action:{
-                                    print("asdfasd")
-                                    self.showChat.toggle()
-                                    
-                                }) {
-                                    
-                                    Image(systemName: "paperplane.fill").resizable().frame(width: 20, height: 20).foregroundColor(Color.black)
-                                }
-                                .offset(y: -5).padding(.trailing, 20)
-                            }
-                     
+                        HStack{
+                            Spacer()
+                            
+                            //                                Button(action:{
+                            //                                    print("asdfasd")
+                            //                                    self.showChat.toggle()
+                            //                                    self.detail.toggle()
+                            //
+                            //                                }) {
+                            //
+                            //                                    Image(systemName: "paperplane.fill").resizable().frame(width: 20, height: 20).foregroundColor(Color.black)
+                            //                                }
+                            //                                .offset(y: -5).padding(.trailing, 20)
+                        }
+                        
                         
                         
                         Text("Category")
                             .font(.title)
                             .fontWeight(.bold)
                         
-                    }.padding(.top, 40)
+                    }.padding(.top, 45)
                     
                     ScrollView(.vertical, showsIndicators: false) {
                         
@@ -89,7 +90,7 @@ struct Home2 : View {
                 
                 
             }
-        }  .background(Color("Color"))
+        }  .background(Color("Color-2"))
             .edgesIgnoringSafeArea(.bottom)
         
     }

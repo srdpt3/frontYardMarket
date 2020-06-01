@@ -57,7 +57,7 @@ struct MessageSubView: View {
                         HStack{
                             Image("Profile").resizable().clipShape(Circle()).frame(width: 50, height: 50)
                             VStack(alignment: .leading, spacing: 5){
-                                Text("YDS").font(.headline).bold()
+                                Text("David").font(.headline).bold()
                                 Text("asdfasdfasdf").font(.subheadline).lineLimit(2)
                             }
                             Spacer()
@@ -125,4 +125,3 @@ struct Rounded : Shape {
         return Path(path.cgPath)
     }
 }
-
