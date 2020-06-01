@@ -16,7 +16,7 @@ struct LoginView: View {
         
         ZStack{
             
-//            LinearGradient(gradient: .init(colors: [Color.whi,Color("Color"),Color("Color")]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
+            //            LinearGradient(gradient: .init(colors: [Color.whi,Color("Color"),Color("Color")]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
             
             if UIScreen.main.bounds.height > 800{
                 
@@ -44,7 +44,7 @@ struct  LoginHome : View {
     var body: some View {
         VStack {
             
-            Image(systemName: "signature").resizable().frame(width: 140, height: 120)
+//            Image(systemName: "signature").resizable().frame(width: 140, height: 120)
             
             HStack{
                 Button(action: {
@@ -151,7 +151,7 @@ struct  LoginHome : View {
 
 struct Login : View {
     let hud = JGProgressHUD(style: .dark)
-
+    
     @State var mail = ""
     @State var pass = ""
     
@@ -206,28 +206,27 @@ struct Login : View {
                     if error == nil {
                         
                         if  isEmailVerified {
-//                            self.dismissView()
+                            //                            self.dismissView()
                             print("Email is verified")
-                            CustomController()
                         } else {
-//                            self.resendButtonOutlet.isHidden = false
+                            //                            self.resendButtonOutlet.isHidden = false
                             
-//                            self.hud.textLabel.text = "Please Verify your email!"
-//                            self.hud.indicatorView = JGProgressHUDErrorIndicatorView()
-////                            self.hud.show()
-//                            self.hud.dismiss(afterDelay: 2.0)
+                            //                            self.hud.textLabel.text = "Please Verify your email!"
+                            //                            self.hud.indicatorView = JGProgressHUDErrorIndicatorView()
+                            ////                            self.hud.show()
+                            //                            self.hud.dismiss(afterDelay: 2.0)
                         }
                         
                     } else {
                         print("error loging in the iser", error!.localizedDescription)
-//                        self.hud.textLabel.text = error!.localizedDescription
-//                        self.hud.indicatorView = JGProgressHUDErrorIndicatorView()
-//                        self.hud.show(in: <#T##UIView#>)
-//                        self.hud.dismiss(afterDelay: 2.0)
+                        //                        self.hud.textLabel.text = error!.localizedDescription
+                        //                        self.hud.indicatorView = JGProgressHUDErrorIndicatorView()
+                        //                        self.hud.show(in: <#T##UIView#>)
+                        //                        self.hud.dismiss(afterDelay: 2.0)
                     }
                     
                     
-//                    self.hideLoadingIdicator()
+                    //                    self.hideLoadingIdicator()
                 }
             }) {
                 
@@ -239,7 +238,7 @@ struct Login : View {
                 
             }.background(
                 
-                LinearGradient(gradient: .init(colors: [Color("Color2"),Color("Color1"),Color("Color")]), startPoint: .leading, endPoint: .trailing)
+                LinearGradient(gradient: .init(colors: [Color("Color2"),Color("Color")]), startPoint: .leading, endPoint: .trailing)
             )
                 .cornerRadius(8)
                 .offset(y: -40)
@@ -333,7 +332,7 @@ struct SignUp : View {
                 
             }.background(
                 
-                LinearGradient(gradient: .init(colors: [Color("Color2"),Color("Color1"),Color("Color")]), startPoint: .leading, endPoint: .trailing)
+                LinearGradient(gradient: .init(colors: [Color("Color2"),Color("Color")]), startPoint: .leading, endPoint: .trailing)
             )
                 .cornerRadius(8)
                 .offset(y: -40)
@@ -343,18 +342,3 @@ struct SignUp : View {
     }
 }
 
-
-struct CustomController : UIViewControllerRepresentable {
-    func makeUIViewController(context: UIViewControllerRepresentableContext<CustomController>) ->
-    UIViewController{
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let controller = storyboard.instantiateViewController(identifier: "tabBarView")
-        return controller
-            
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: UIViewControllerRepresentableContext<CustomController>) {
-        
-    }
-}

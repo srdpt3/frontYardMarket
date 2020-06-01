@@ -25,6 +25,7 @@ struct CategoryView_Previews: PreviewProvider {
 }
 
 struct Home2 : View {
+    @State private var showChat = false
     
     @Binding var data : [Category]
     @Binding var Grid : [Int]
@@ -32,25 +33,33 @@ struct Home2 : View {
     var body : some View{
         
         VStack(spacing: 0){
-            ZStack{
-                HStack{
-                    Spacer()
-                    Button(action: {
-                        
-                    }) {
-                        
-                        Image("Search").resizable().frame(width: 20, height: 20).foregroundColor(Color.black.opacity(0.2))
-                    }
-                    .offset(y: -5).padding(.trailing, 20)
-                }
-                
-                Text("Category")
-                    .font(.title)
-                    .fontWeight(.bold)
-                
-            }.padding(.top, 40)
+            
             VStack{
                 if !self.Grid.isEmpty{
+                   
+                    ZStack{
+                            HStack{
+                                Spacer()
+                                
+                                Button(action:{
+                                    print("asdfasd")
+                                    self.showChat.toggle()
+                                    
+                                }) {
+                                    
+                                    Image(systemName: "paperplane.fill").resizable().frame(width: 20, height: 20).foregroundColor(Color.black)
+                                }
+                                .offset(y: -5).padding(.trailing, 20)
+                            }
+                     
+                        
+                        
+                        Text("Category")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        
+                    }.padding(.top, 40)
+                    
                     ScrollView(.vertical, showsIndicators: false) {
                         
                         
@@ -74,6 +83,11 @@ struct Home2 : View {
                         } .padding()
                     }
                 }
+                
+                
+                
+                
+                
             }
         }  .background(Color("Color"))
             .edgesIgnoringSafeArea(.bottom)
@@ -85,14 +99,14 @@ struct Home2 : View {
 }
 struct Card : View {
     @State var show  = false
-
+    
     var data : Category
     
     var body: some View{
         
         VStack(spacing: 10){
             Button(action: {
-                  self.show.toggle()
+                self.show.toggle()
             }){
                 Image(self.data.imageName!)
                     .resizable()

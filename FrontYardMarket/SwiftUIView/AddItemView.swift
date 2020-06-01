@@ -113,7 +113,7 @@ struct CustomPicker : View {
                         
                         HStack(spacing: 10){
                             
-                            TextField("Name", text: self.$name).padding(.leading, 10).foregroundColor(.gray)
+                            TextField("Name", text: self.$name).padding(.leading, 5).foregroundColor(.gray)
                             
                
                        
@@ -163,7 +163,7 @@ struct CustomPicker : View {
                     
                     Button(action: {
                         
-                        print(self.selected.count)
+                        print(self.selected[0].image)
                         print(self.desc)
                         print(self.name)
 

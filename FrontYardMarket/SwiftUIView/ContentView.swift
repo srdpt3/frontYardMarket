@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        Home()
+        TabBarView()
     }
 }
 
@@ -28,13 +28,17 @@ struct Home : View {
     
     var body : some View{
         
-        VStack(spacing: 0){
-            
-            MainView(index: self.$index)
-            
-            TabBar(index: self.$index)
+        
+        NavigationView{
+            VStack(spacing: 0){
+                
+                MainView(index: self.$index)
+                
+                TabBar(index: self.$index)
+            }
+           
         }
-        .edgesIgnoringSafeArea(.top)
+
     }
 }
 
@@ -51,6 +55,12 @@ struct MainView : View {
                 //Your Views Change Views By Index....
                 if self.index == 0 {
                     CategoryView()
+//                }else if self.index == 2 {
+//                    print("asdf")
+//
+                    
+                }else if self.index == 3 {
+                    LoginView()
                 }
                 
                 Text("")
@@ -58,7 +68,7 @@ struct MainView : View {
             .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
         }
         .background(Color("Color").edgesIgnoringSafeArea(.top))
-        .clipShape(Corners())
+        //    .clipShape(Corners())
     }
 }
 
@@ -70,7 +80,7 @@ struct TabBar : View {
         
         HStack{
             
-            HStack(spacing: (UIScreen.main.bounds.width - 80) / 5){
+            HStack(spacing: (UIScreen.main.bounds.width - 80) / 6){
                 
                 Button(action: {
                     
@@ -98,7 +108,7 @@ struct TabBar : View {
                     
                 }) {
                     
-                    Image("Bag")
+                    Image("Chat").resizable().frame(width: 19, height: 21)
                         .foregroundColor(self.index == 2 ? .black : Color.black.opacity(0.35))
                 }
                 
@@ -108,17 +118,17 @@ struct TabBar : View {
                     
                 }) {
                     
-                    Image("Profile")
+                    Image("settings")
                         .foregroundColor(self.index == 3 ? .black : Color.black.opacity(0.35))
                 }
             }
             .padding(.horizontal, 30)
-            .padding(.bottom, 12)
-            .padding(.top, 28)
-            .background(Color.white)
-            .clipShape(Curve(index: self.$index))
+                //            .padding(.bottom, 12)
+                //            .padding(.top, 28)
+                .background(Color.white)
+            //            .clipShape(Curve(index: self.$index))
             
-        }.background(Color("Color"))
+        }
     }
 }
 

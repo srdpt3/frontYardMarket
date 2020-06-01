@@ -74,3 +74,41 @@ func saveImageInFirebase(imageData: Data, fileName: String, completion: @escapin
     })
 }
 
+func uploadChatImages(messageId: String, senderId: String, senderUsername: String, senderAvatarUrl : String, recipientId: String,
+                      recipientUsername: String, recipientAvatarUrl : String, imageData: Data, metadata: StorageMetadata, storageChatRef: StorageReference
+    , onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+    
+    storageChatRef.putData(imageData, metadata: metadata) { (storageMetadata, error) in
+        if error != nil {
+            onError(error!.localizedDescription)
+            return
+        }
+        storageChatRef.downloadURL { (url, error) in
+            if let metaImageUrl = url?.absoluteString {
+                let chat = Chat(_messageId: messageId, _textMessage: "", _avatarUrl: "", _photoUrl: metaImageUrl, _senderId: senderId, _username: senderUsername, _date: Date().timeIntervalSince1970)
+                
+                //        guard let dict = try? chatDictionaryFrom(chat) else { return }
+                
+                FirebaseReference(.chat).document(senderId).collection("chatRoom").document(recipientId).collection("chatItems").document(messageId).setData(ChatApi.chatDictionaryFrom(chat)as! [String : Any]) { (error) in
+                    if error == nil {
+                        ChatApi.FIRESTORE_COLLECTION_CHATROOM(senderId: recipientId, recipientId: senderId).document(messageId).setData(ChatApi.chatDictionaryFrom(chat) as! [String : Any])
+                        
+                        let inboxMessage1 = InboxMessage(id: UUID().uuidString, lastMessage:  "PHOTO", username: recipientUsername, type: "PHOTO", date: Date().timeIntervalSince1970, userId: recipientId, avatarUrl: "recipientAvatarUrl")
+                        let inboxMessage2 = InboxMessage(id: UUID().uuidString, lastMessage:  "PHOTO", username: senderUsername, type: "PHOTO", date: Date().timeIntervalSince1970, userId: senderId, avatarUrl: "senderAvatarUrl")
+                        
+                        
+                        ChatApi.FIRESTORE_COLLECTION_INBOX_MESSAGES_DOCUMENT_USERID(senderId: senderId, recipientId: recipientId).setData(ChatApi.inboxDict(inboxMessage1) as! [String : Any])
+                        ChatApi.FIRESTORE_COLLECTION_INBOX_MESSAGES_DOCUMENT_USERID(senderId: recipientId, recipientId: senderId).setData(ChatApi.inboxDict(inboxMessage2) as! [String : Any])
+                        onSuccess()
+                    } else {
+                        onError(error!.localizedDescription)
+                    }
+                }
+                
+                
+                
+            }
+        }
+    }
+}
+

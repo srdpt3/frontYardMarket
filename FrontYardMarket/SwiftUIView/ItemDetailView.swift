@@ -57,7 +57,7 @@ struct itemDetailHome : View {
                         self.show.toggle()
                     }) {
                         
-                        Image("back2")
+                        Image(systemName: "arrow.left.circle")
                             .renderingMode(.original).foregroundColor(Color.white).padding()
                            
                     }

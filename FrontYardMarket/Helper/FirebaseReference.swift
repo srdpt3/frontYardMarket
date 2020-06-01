@@ -14,6 +14,8 @@ enum FCollectionReference : String{
     case Category
     case Items
     case Basket
+    case chat
+    case messages
 }
 
 
