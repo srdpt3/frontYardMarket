@@ -36,8 +36,8 @@ struct subMainView : View {
                 if self.index == 0{
                     
                     
-                    CategoryView()
-                    
+                   CategoryView()
+//                    TempView()
                     
                 }
                 else if self.index == 1{
