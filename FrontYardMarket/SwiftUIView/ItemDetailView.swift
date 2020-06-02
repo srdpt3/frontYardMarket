@@ -36,7 +36,8 @@ struct itemDetailHome : View {
     @State private var locations = [MKPointAnnotation]()
     @Binding var item : Item!
     @Binding var show : Bool
-
+    @Environment(\.presentationMode) var presentation
+    
     var body: some View{
         
         VStack{
@@ -45,21 +46,19 @@ struct itemDetailHome : View {
                 
                 VStack{
                     
-                    //                    Image(self.color == 0 ? "lamp1" : "lamp2")
-                    //                    .resizable()
-                    //                    .frame(height: 300)
-                    AnimatedImage(url: URL(string: self.item.imageLinks.first!)).resizable().frame( height: 300).animation(Animation.easeOut(duration: 0.6).delay(0.1))
+                    AnimatedImage(url: URL(string: self.item.imageLinks.first!)).resizable().frame( height: 300)
                 }
+                
                 
                 HStack{
                     
                     Button(action: {
-                        self.show.toggle()
+                        self.presentation.wrappedValue.dismiss()
                     }) {
                         
                         Image(systemName: "arrow.left.circle")
                             .renderingMode(.original).foregroundColor(Color.white).padding()
-                           
+                        
                     }
                     .padding(.leading, 10)
                     .padding(.top, 10).colorMultiply(Color.white)
@@ -80,9 +79,9 @@ struct itemDetailHome : View {
                     .clipShape(CustomShape(corner: .bottomLeft, radii: self.height > 800 ? 30 : 25))
                 }
                 
-            }
-            .background(Color.clear)
-            .clipShape(CustomShape(corner: .bottomLeft, radii: 55))
+            }.navigationBarTitle("").navigationBarHidden(true)
+                .background(Color.clear)
+                .clipShape(CustomShape(corner: .bottomLeft, radii: 55))
             
             ScrollView(self.height > 400 ? .init() : .vertical, showsIndicators: false) {
                 
@@ -92,12 +91,12 @@ struct itemDetailHome : View {
                         
                         Text(self.item.name)
                             .font(.title)
-                            .fontWeight(.bold).animation(Animation.easeOut(duration: 0.6).delay(0.3))
+                            .fontWeight(.bold)
                         
                         Spacer()
                         
                         Button(action: {
-                            
+                            print("push to favorite")
                         }) {
                             
                             Image("heart")
@@ -116,20 +115,20 @@ struct itemDetailHome : View {
                         .multilineTextAlignment(.leading)
                         .foregroundColor(.gray)
                         .padding(.horizontal, 30)
-                        .padding(.top,20).animation(Animation.easeOut(duration: 0.6).delay(0.5))
+                        .padding(.top,20)
                     
                     Spacer(minLength: 0)
-                  
+                    
                     
                 }
             }
             ZStack {
-                                  MapView(ceterCoordinate: $centerCoordinate, mapAnnotations: locations).edgesIgnoringSafeArea(.all)
-                                  Circle().fill(Color.blue).opacity(0.3).frame(width: 20, height: 20)
-                              }
+                MapView(ceterCoordinate: $centerCoordinate, mapAnnotations: locations).edgesIgnoringSafeArea(.all)
+                Circle().fill(Color.blue).opacity(0.3).frame(width: 20, height: 20)
+            }
             
             Spacer(minLength: 10)
-
+            
             HStack{
                 
                 Text("$" + String(format:"%.1f", self.item.price))
@@ -141,25 +140,29 @@ struct itemDetailHome : View {
                     .padding(.bottom,25)
                 
                 Spacer()
-                
                 Button(action: {
                     
                 }) {
+                    NavigationLink(destination: ChatView()){
+                        Text("Contact Seller")
+                            .foregroundColor(.white)
+                            .padding(.vertical, 20)
+                            .padding(.horizontal, 35)
+                    }
                     
-                    Text("Contact Seller")
-                        .foregroundColor(.black)
-                        .padding(.vertical, 20)
-                        .padding(.horizontal, 35)
                 }
-                .background(self.color == 0 ? Color.yellow : Color.orange)
+                .background(Color("bg"))
                 .clipShape(CustomShape(corner: .topLeft, radii: 55))
                 
+                
+                
             }
-
+            
         }
-        .edgesIgnoringSafeArea(.all)
-        .statusBar(hidden: true)
-        .animation(.default)
+            //        .edgesIgnoringSafeArea(.all)
+            .statusBar(hidden: true)
+            .animation(.default)
+        
     }
 }
 

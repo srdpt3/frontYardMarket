@@ -18,7 +18,6 @@
 		1103D1E22481D1E60068C5A5 /* ChatApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103D1E12481D1E60068C5A5 /* ChatApi.swift */; };
 		1103D1E62481D9060068C5A5 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103D1E52481D9060068C5A5 /* ChatViewModel.swift */; };
 		1103D1E82481E8200068C5A5 /* InboxMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103D1E72481E8200068C5A5 /* InboxMessage.swift */; };
-		1103D1EA2482BBA40068C5A5 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103D1E92482BBA10068C5A5 /* TabBarView.swift */; };
 		1103D1EC248479A00068C5A5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103D1EB2484799F0068C5A5 /* CameraView.swift */; };
 		1103D1EE24847D880068C5A5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103D1ED24847D880068C5A5 /* ImagePicker.swift */; };
 		1103D1F024847DF30068C5A5 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103D1EF24847DF30068C5A5 /* CameraViewModel.swift */; };
@@ -94,7 +93,6 @@
 		1103D1E12481D1E60068C5A5 /* ChatApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatApi.swift; sourceTree = "<group>"; };
 		1103D1E52481D9060068C5A5 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		1103D1E72481E8200068C5A5 /* InboxMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxMessage.swift; sourceTree = "<group>"; };
-		1103D1E92482BBA10068C5A5 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		1103D1EB2484799F0068C5A5 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		1103D1ED24847D880068C5A5 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		1103D1EF24847DF30068C5A5 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
@@ -310,7 +308,6 @@
 				1103D1DB248184B80068C5A5 /* MessageView.swift */,
 				1103D1DD248197D10068C5A5 /* ChatView.swift */,
 				1103D1E52481D9060068C5A5 /* ChatViewModel.swift */,
-				1103D1E92482BBA10068C5A5 /* TabBarView.swift */,
 				1103D1ED24847D880068C5A5 /* ImagePicker.swift */,
 				1103D1EF24847DF30068C5A5 /* CameraViewModel.swift */,
 			);
@@ -618,7 +615,6 @@
 				11F45389247C31F300A41C50 /* CategoryView.swift in Sources */,
 				11F4538D247DBB6D00A41C50 /* ItemView.swift in Sources */,
 				11F45387247ADDC800A41C50 /* LoginView.swift in Sources */,
-				1103D1EA2482BBA40068C5A5 /* TabBarView.swift in Sources */,
 				11A096AA2470BDCC0079762A /* Downloader.swift in Sources */,
 				11A09686246C82060079762A /* CategoryCollectionViewCell.swift in Sources */,
 				1103D1D2247F47CD0068C5A5 /* Utils.swift in Sources */,

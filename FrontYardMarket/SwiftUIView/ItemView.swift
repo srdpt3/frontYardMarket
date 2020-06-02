@@ -12,8 +12,8 @@ import SDWebImageSwiftUI
 struct ItemView: View {
     var category : Category!
     @ObservedObject var itemArray : getCategoryItem
-
-
+    
+    
     init(category : Category){
         itemArray = getCategoryItem(category: category)
     }
@@ -47,6 +47,7 @@ struct ItemViewHome : View {
     @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     var item : [Item]
     @State var show = false
+    @Environment(\.presentationMode) var presentation
     
     var body: some View{
         
@@ -55,16 +56,27 @@ struct ItemViewHome : View {
             ScrollView(.vertical, showsIndicators: false, content: {
                 
                 VStack{
-
+                    
                     
                     VStack{
                         
                         HStack{
+                            
+                            Button(action: {
+                                self.presentation.wrappedValue.dismiss()
+                            }) {
+                                
+                                Image(systemName: "arrow.left.circle")
+                                    .renderingMode(.original).foregroundColor(Color.white).padding(10)
+                                
+                            }
+                            
+                            
                             Image("prada")
                                 .resizable()
                                 .frame(width: 40, height: 40).cornerRadius(20)
                             // for dark mode adaption...
-                            //                                .foregroundColor(.primary)
+                            .foregroundColor(.primary)
                             Text("Prada")
                                 .font(.title)
                                 .fontWeight(.bold)
@@ -80,16 +92,17 @@ struct ItemViewHome : View {
                                     .foregroundColor(.white)
                                     .padding(.vertical,5)
                                     .padding(.horizontal, 10)
-                                    .background(Color.blue)
+                                    .background(Color("bg"))
                                     .clipShape(Capsule())
                             }
                         }
                         
-                        VStack(spacing: 20){
+                        VStack(spacing: 30){
                             
                             ForEach(item, id: \.id){i in
                                 
                                 CardView(data: i)
+                                
                             }
                         }
                         .padding(.top)
@@ -100,12 +113,10 @@ struct ItemViewHome : View {
                 }
             })
             
-            //            if self.show{
-            
-            //                TopView()
-            //            }
+
         })
-            .edgesIgnoringSafeArea(.bottom).sheet(isPresented: $show){
+            .edgesIgnoringSafeArea(.bottom).navigationBarTitle("").navigationBarHidden(true)
+            .sheet(isPresented: $show){
                 AddItemView()
         }
     }
@@ -115,50 +126,86 @@ struct ItemViewHome : View {
 
 struct CardView : View {
     @State var show  = false
-
+    
     var data : Item
     var body: some View{
         
         HStack(alignment: .top, spacing: 20){
             
-            AnimatedImage(url: URL(string: self.data.imageLinks.first!)).resizable().frame(width: 90, height: 90).cornerRadius(20)
+            AnimatedImage(url: URL(string: self.data.imageLinks.first!)).resizable().frame(width: 100, height: 100).cornerRadius(20)
+            
             VStack(alignment: .leading, spacing: 6) {
-                
-                Text(self.data.name)
-                    .fontWeight(.bold)
-                
-                Text(self.data.description)
-                    .font(.caption)
-                    .foregroundColor(.gray)
-                
-                HStack(spacing: 12){
+                HStack{
                     
+                    Text(self.data.name)
+                        .fontWeight(.bold)
+                    Spacer()
+                    
+                }
+                
+                HStack{
+                    
+                    Text(self.data.description)
+                                     .font(.caption)
+                                     .foregroundColor(.gray).lineLimit(2)
+                                 
+                    Spacer()
                     Button(action: {
-                        self.show.toggle()
-                    }) {
-                        
-                        Text("View")
-                            .fontWeight(.bold)
-                            .padding(.vertical,5)
-                            .padding(.horizontal,30)
-                            // for adapting to dark mode...
-                            .background(Color.primary.opacity(0.06))
-                            .clipShape(Capsule())
-                    }
-
+                                
+                            }) {
+                                NavigationLink(destination:  ItemDetailView(item: self.data, show: self.$show)){
+                                    Text(">")
+                                        .fontWeight(.bold)
+                                        .padding(.vertical,5)
+                                        .padding(.horizontal, 10)
+                                        // for adapting to dark mode...
+                                        .background(Color.primary.opacity(0.06))
+                                        .clipShape(Capsule()).foregroundColor(Color("bg"))
+                                }
+                                
+                            }
+                            .clipShape(CustomShape(corner: .topLeft, radii: 55))
+                }
+             
+                HStack(spacing: 10){
                     Text("$" + String(format:"%.1f", self.data.price))
                         .font(.caption)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.gray)   .fontWeight(.bold)
+                    
+                    
+                    
+                    
+                    //                    Button(action: {
+                    //                        self.show.toggle()
+                    //                    }) {
+                    //
+                    //                        Text("View")
+                    //                            .fontWeight(.bold)
+                    //                            .padding(.vertical,5)
+                    //                            .padding(.horizontal,30)
+                    //                            // for adapting to dark mode...
+                    //                            .background(Color.primary.opacity(0.06))
+                    //                            .clipShape(Capsule())
+                    //                    }
+                    Image("heart").renderingMode(.original).foregroundColor(Color.white)
+                    
+                    Text("2")
+                        .font(.caption)
+                        .foregroundColor(.gray).padding(.trailing)
+                    
                 }
                 
             }
             
-            Spacer(minLength: 0)
-        }.sheet(isPresented: $show) {
-            ItemDetailView(item: self.data, show: self.$show)
+            //            Spacer(minLength: 10)
+        
+            
         }
+        //        .sheet(isPresented: $show) {
+        //            ItemDetailView(item: self.data, show: self.$show)
+        //        }
     }
-
+    
     
 }
 
@@ -233,17 +280,6 @@ struct CardTemp : Identifiable {
     var subTitile : String
 }
 
-var data = [
-    
-    CardTemp(id: 0, image: "g1", title: "Zombie Gunship Survival", subTitile: "Tour the apocalypse"),
-    CardTemp(id: 1, image: "g1", title: "Portal", subTitile: "Travel through dimensions"),
-    CardTemp(id: 2, image: "g1", title: "Wave Form", subTitile: "Fun enagaging wave game"),
-    CardTemp(id: 3, image: "g1", title: "Temple Run", subTitile: "Run for your life"),
-    CardTemp(id: 4, image: "g1", title: "World of Warcrat", subTitile: "Be whoever you want"),
-    CardTemp(id: 5, image: "g1", title: "Alto’s Adventure", subTitile: "A snowboarding odyssey"),
-    CardTemp(id: 6, image: "g1", title: "Space Frog", subTitile: "Jump and have fun"),
-    CardTemp(id: 7, image: "g1", title: "Dinosaur Mario", subTitile: "Keep running")
-]
 
 
 class getCategoryItem : ObservableObject{

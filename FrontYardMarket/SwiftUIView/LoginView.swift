@@ -44,7 +44,7 @@ struct  LoginHome : View {
     var body: some View {
         VStack {
             
-//            Image(systemName: "signature").resizable().frame(width: 140, height: 120)
+            Image(systemName: "signature").resizable().frame(width: 140, height: 120)
             
             HStack{
                 Button(action: {

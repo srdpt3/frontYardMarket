@@ -9,27 +9,21 @@
 import SwiftUI
 
 struct ChatView: View {
-    @Binding var detail : Bool
+    //   @Binding var detail : Bool
     
     var body: some View {
         
-        ChatViewSub().onAppear(){
-            self.detail.toggle()
-        }.onDisappear(){
-            self.detail.toggle()
-        }
-        
+        ChatViewSub()
         
     }
 }
 
-//struct ChatView_Previews: PreviewProvider {
-//    @State var detail : Bool
-//
-//    static var previews: some View {
-//        ChatView(detail: )
-//    }
-//}
+struct ChatView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        ChatView()
+    }
+}
 
 struct ChatViewSub: View{
     @ObservedObject var chatViewModel = ChatViewModel()
@@ -135,7 +129,6 @@ struct ChatViewSub: View{
         .sheet(isPresented: $chatViewModel.showImagePicker, onDismiss: {
             self.sendPhoto()
         }) {
-            // ImagePickerController()
             ImagePicker(showImagePicker: self.$chatViewModel.showImagePicker, pickedImage: self.$chatViewModel.image, imageData: self.$chatViewModel.imageData)
         }
             

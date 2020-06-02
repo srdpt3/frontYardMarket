@@ -9,111 +9,102 @@
 import SwiftUI
 
 struct MessageView: View {
-    @Binding var detail : Bool
-
+    
     var body: some View {
-        HomeView(detail: self.$detail)
+        HomeView()
     }
 }
 
-//struct MessageView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MessageView()
-//    }
-//}
+struct MessageView_Previews: PreviewProvider {
+    static var previews: some View {
+        MessageView()
+    }
+}
 struct HomeView : View {
     
-    @Binding var detail : Bool
-
     var body : some View{
         
         ZStack{
             
             Color("bg").edgesIgnoringSafeArea(.top)
             
-//            NavigationLink(destination: ChatView()) {
-//            
-//                Text("")
-//            }
             VStack{
                 
-                topView(detail: self.$detail)
+                topView()
             }
         }
     }
 }
 
 struct MessageSubView: View {
-    @Binding var detail : Bool
-
+    
     var body: some View{
-  
-
-   
-            List{
-                ForEach(0..<10){ _ in
-      
-                    NavigationLink(destination: ChatView(detail: self.$detail)){
-                        HStack{
-                            Image("Profile").resizable().clipShape(Circle()).frame(width: 50, height: 50)
-                            VStack(alignment: .leading, spacing: 5){
-                                Text("David").font(.headline).bold()
-                                Text("asdfasdfasdf").font(.subheadline).lineLimit(2)
-                            }
-                            Spacer()
-                            VStack(spacing: 5){
-                                Text("15:00").bold()
-                                Text("2").padding(8).foregroundColor(.white).background(Color.blue).clipShape(Circle())
-                            }
-                        }.padding(10)
-                    }
-
-                    
+        
+        
+        
+        List{
+            ForEach(0..<10){ _ in
+                
+                NavigationLink(destination: ChatView()){
+                    HStack{
+                        Image("Profile").resizable().clipShape(Circle()).frame(width: 50, height: 50)
+                        VStack(alignment: .leading, spacing: 5){
+                            Text("David").font(.headline).bold()
+                            Text("asdfasdfasdf").font(.subheadline).lineLimit(2)
+                        }
+                        Spacer()
+                        VStack(spacing: 5){
+                            Text("15:00").bold()
+                            Text("2").padding(8).foregroundColor(.white).background(Color.blue).clipShape(Circle())
+                        }
+                    }.padding(10)
                 }
-                }.navigationBarTitle(Text("Messages"), displayMode: .inline).navigationBarHidden(true)
-            //            .accentColor(Color("bg"))
+                
+                
+            }
+        }.navigationBarTitle(Text("Messages"), displayMode: .inline).navigationBarHidden(true)
+        //            .accentColor(Color("bg"))
         
     }
 }
 
 struct topView : View {
-    @Binding var detail : Bool
-
+    
     var body : some View{
-
+        
         VStack{
-
+            
             HStack(spacing: 15){
-
+                
                 Text("Chats").fontWeight(.heavy).font(.system(size: 23))
-
+                
                 Spacer()
-
+                
                 Button(action: {
-
+                    
                 }) {
-
+                    
                     Image(systemName: "magnifyingglass").resizable().frame(width: 20, height: 20)
                 }
-
+                
                 Button(action: {
-
+                    
                 }) {
-
+                    
                     Image("menu").resizable().frame(width: 20, height: 20)
                 }
-
+                
             }
             .foregroundColor(Color.white)
             .padding()
-
+            
             GeometryReader{_ in
-
-                MessageSubView(detail: self.$detail).clipShape(Rounded())
+                
+                MessageSubView().clipShape(Rounded())
             }
         }
-
-
+        
+        
     }
 }
 

@@ -19,17 +19,17 @@ struct CategoryView: View {
     
 }
 
-struct CategoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        CategoryView()
-    }
-}
+//struct CategoryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CategoryView()
+//    }
+//}
 
 struct Home2 : View {
-    @State private var showChat = false
-    
+    @State var delay : Double = 0.6
     @Binding var data : [Category]
     @Binding var Grid : [Int]
+    
     var body : some View{
         
         VStack(spacing: 0){
@@ -41,16 +41,14 @@ struct Home2 : View {
                         HStack{
                             Spacer()
                             
-                            //                                Button(action:{
-                            //                                    print("asdfasd")
-                            //                                    self.showChat.toggle()
-                            //                                    self.detail.toggle()
-                            //
-                            //                                }) {
-                            //
-                            //                                    Image(systemName: "paperplane.fill").resizable().frame(width: 20, height: 20).foregroundColor(Color.black)
-                            //                                }
-                            //                                .offset(y: -5).padding(.trailing, 20)
+                            Button(action:{
+                                
+                                
+                            }) {
+                                
+                                Image(systemName: "paperplane.fill").resizable().frame(width: 20, height: 20).foregroundColor(Color.black)
+                            }
+                            .offset(y: -5).padding(.trailing, 20)
                         }
                         
                         
@@ -91,7 +89,7 @@ struct Home2 : View {
                 
             }
         }  .background(Color("Color-2"))
-            .edgesIgnoringSafeArea(.bottom)
+            .edgesIgnoringSafeArea(.top)
         
     }
     
@@ -100,26 +98,30 @@ struct Home2 : View {
 }
 struct Card : View {
     @State var show  = false
-    
     var data : Category
     
     var body: some View{
-        
-        VStack(spacing: 10){
-            Button(action: {
-                self.show.toggle()
-            }){
-                Image(self.data.imageName!)
-                    .resizable()
-                    .frame(width: (UIScreen.main.bounds.width - 45) / 3, height: 100)
-                    .cornerRadius(12)
+        ZStack{
+            VStack(spacing: 10){
                 
-            }.buttonStyle(PlainButtonStyle())
+                Button(action: {
+                    
+                }){
+                    NavigationLink(destination: ItemView(category: self.data)){
+                        Image(self.data.imageName!)
+                            .resizable()
+                            .frame(width: (UIScreen.main.bounds.width - 45) / 3, height: 100)
+                            .cornerRadius(12)
+                    }
+                    
+                    
+                }
+                //                        .buttonStyle(PlainButtonStyle())
+            }
+            .cornerRadius(10)
+            .shadow(radius: 6)
             
         }
-        .cornerRadius(10)
-        .shadow(radius: 6).sheet(isPresented: $show) {
-            ItemView(category: self.data)
-        }
+        
     }
 }

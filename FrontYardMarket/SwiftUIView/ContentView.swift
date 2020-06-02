@@ -10,7 +10,6 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State var detail : Bool = false
     var body: some View {
         
         subMainView()
@@ -26,43 +25,42 @@ struct ContentView_Previews: PreviewProvider {
 
 struct subMainView : View {
     @State var index = 0
-    @State var detail : Bool = false
+    
     
     var body: some View {
         NavigationView{
             VStack(spacing: 0){
                 
-                ZStack{
+                
+                
+                if self.index == 0{
                     
-                    if self.index == 0{
-                        
-                        Color.black.opacity(0.05)
-                        NavigationView{
-                            
-                            CategoryView()
-                        }
-                    }
-                    else if self.index == 1{
-                        
-                        
-                        
-                        MessageView(detail: self.$detail)
-                        
-                    }
-                    else if self.index == 2{
-                        
-                        Color.blue
-                    }
-                    else{
-                        
-                        Color.orange
-                    }
+                    
+                    CategoryView()
+                    
+                    
+                }
+                else if self.index == 1{
+                    
+                    
+                    
+                    MessageView()
+                    
+                }
+                else if self.index == 2{
+                    
+                    Color.blue
+                }
+                else{
+                    
+                    Color.orange
                 }
                 
-                CircleTab(index: self.$index, detail: self.$detail).opacity(self.detail ? 0 : 1)
+                
+                CircleTab(index: self.$index)
+                //                    .opacity(self.detail ? 0 : 1)
                 
             }
-            //        .edgesIgnoringSafeArea(.top)
         }
     }
     
@@ -72,7 +70,7 @@ struct subMainView : View {
 struct CircleTab : View {
     
     @Binding var index : Int
-    @Binding var detail : Bool
+    //    @Binding var detail : Bool
     var body : some View{
         
         
@@ -122,7 +120,7 @@ struct CircleTab : View {
                     
                     if self.index != 1{
                         
-                        Image("Chat").resizable().frame(width: 19, height: 19).foregroundColor(Color.black.opacity(0.2))   
+                        Image("Chat").resizable().frame(width: 19, height: 19).foregroundColor(Color.black.opacity(0.2))
                     }
                     else{
                         
@@ -143,6 +141,7 @@ struct CircleTab : View {
             
             Spacer(minLength: 15)
             
+            
             Button(action: {
                 
                 self.index = 2
@@ -152,6 +151,37 @@ struct CircleTab : View {
                 VStack{
                     
                     if self.index != 2{
+                        
+                        Image("heart").resizable().frame(width: 19, height: 19).foregroundColor(Color.black.opacity(0.2))
+                    }
+                    else{
+                        
+                        Image("heart")
+                            .resizable()
+                            .frame(width: 23, height: 23)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color("bg"))
+                            .clipShape(Circle())
+                            .offset(y: -20)
+                            .padding(.bottom, -20)
+                        
+                        Text("Favorite").foregroundColor(Color.black.opacity(0.7))
+                    }
+                }
+            }
+            
+            Spacer(minLength: 15)
+            
+            Button(action: {
+                
+                self.index = 3
+                
+            }) {
+                
+                VStack{
+                    
+                    if self.index != 3{
                         
                         Image("settings").foregroundColor(Color.black.opacity(0.2))
                     }
