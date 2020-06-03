@@ -8,30 +8,44 @@
 
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct CategoryView: View {
-    @ObservedObject var data = getData()
     
-    let width: CGFloat = (UIScreen.main.bounds.width - 24) / 3
+    
+    @ObservedObject var categories : LoadCategory
+    @ObservedObject var items : LoadItem
+    
+    
+    init(){
+        categories = LoadCategory()
+        items = LoadItem()
+    }
+    
     var body: some View {
-        CategoryMainView().navigationBarTitle(Text("Category")).navigationBarHidden(true)
-        //       Home2(data:  self.$data.datas, Grid:  self.$data.Grid).edgesIgnoringSafeArea(.all)
+        CategoryMainView(data:  self.$categories.datas, Grid:  self.$categories.Grid, itemData: self.$items.datas).navigationBarTitle(Text("Category")).navigationBarHidden(true)
+        //               Home2(data:  self.$categories.datas, Grid:  self.$categories.Grid).edgesIgnoringSafeArea(.all)
     }
     
 }
 
 struct CategoryMainView : View {
+    
+    @Binding var data : [Category]
+    @Binding var Grid : [Int]
+    @Binding var itemData : [Item]
+    
     @State var txt = ""
     @State  var currentUser = MUser.currentUser()?.firstName
+    
     var body : some View{
         
         VStack(spacing: 15){
-            
             HStack(spacing: 12){
                 
                 Image(systemName: "person").renderingMode(.original).resizable().frame(width: 30, height: 30)
                 
-                Text(String(self.currentUser!)).font(.body)
+                Text(String("Welcome \(self.currentUser!)")).font(.body)
                 
                 Spacer()
                 
@@ -92,9 +106,12 @@ struct CategoryMainView : View {
                             }
                         }
                     }
-                    
-                                        HomeBottomView()
+                    if !self.data.isEmpty{
+                        
+                        HomeBottomView(data:self.$data, items: self.$itemData)
+                    }
                 }
+                
             }
             
             Spacer()
@@ -158,14 +175,14 @@ struct Home2 : View {
                             ForEach(self.Grid,id: \.self){i in
                                 
                                 HStack(spacing: 15){
-                                    ForEach(i...i+2,id:  \.self){j in
+                                    ForEach(i...i+1,id:  \.self){j in
                                         VStack{
                                             if j != self.data.count{
                                                 Card(data: self.data[j])
                                             }
                                         }
                                     }
-                                    if i == self.Grid.last! && self.data.count % 3 != 0{
+                                    if i == self.Grid.last! && self.data.count % 2 != 0{
                                         
                                         Spacer(minLength: 0)
                                     }
@@ -188,46 +205,19 @@ struct Home2 : View {
     
     
 }
-struct Card : View {
-    @State var show  = false
-    var data : Category
-    
-    var body: some View{
-        ZStack{
-            VStack(spacing: 10){
-                
-                Button(action: {
-                    
-                }){
-                    NavigationLink(destination: ItemView(category: self.data)){
-                        Image(self.data.imageName!)
-                            .resizable()
-                            .frame(width: (UIScreen.main.bounds.width - 45) / 3, height: 100)
-                            .cornerRadius(12)
-                    }
-                    
-                    
-                }
-                //                        .buttonStyle(PlainButtonStyle())
-            }
-            .cornerRadius(10)
-            .shadow(radius: 6)
-            
-        }
-        
-    }
-}
 
 
 struct HomeBottomView : View {
-    
+    @Binding var data : [Category]
+    @Binding var items : [Item]
+
     var body : some View{
         
-        VStack(spacing: 15){
+        VStack(spacing: 10){
             
             HStack{
-
-                Text("신선한 아이템").font(.title)
+                
+                Text("Featured Brands").font(.title)
                 
                 Spacer()
                 
@@ -235,7 +225,7 @@ struct HomeBottomView : View {
                     
                 }) {
                     
-                    Text("더보기")
+                    Text("View More").foregroundColor(Color("bg"))
                     
                 }.foregroundColor(Color("Color"))
                 
@@ -245,16 +235,19 @@ struct HomeBottomView : View {
                 
                 HStack(spacing: 15){
                     
-                    ForEach(freshitems){i in
+                    ForEach(self.data, id: \.id){i in
+//                        FreshCellView(data: i)
+                         Card(data: i)
+                        //                        Image(i.imageName!).resizable().frame(width: 150, height: 150)
                         
-                        FreshCellView(data: i)
+                        
                     }
-                }
+                }.padding(.vertical, 10)
             }
             
             HStack{
-
-                Text("레시피").font(.title)
+                
+                Text("Hot Items").font(.title)
                 
                 Spacer()
                 
@@ -262,7 +255,7 @@ struct HomeBottomView : View {
                     
                 }) {
                     
-                    Text("더보기")
+                    Text("View More").foregroundColor(Color("bg"))
                     
                 }.foregroundColor(Color("Color"))
                 
@@ -272,7 +265,7 @@ struct HomeBottomView : View {
                 
                 HStack(spacing: 15){
                     
-                    ForEach(recipeitems){i in
+                    ForEach(self.items, id: \.id){i in
                         
                         RecipeCellView(data: i)
                     }
@@ -281,57 +274,58 @@ struct HomeBottomView : View {
         }
     }
 }
-
-struct FreshCellView : View {
+struct Card : View {
+    @State var show  = false
+    var data : Category
     
-    var data : fresh
-    @State var show = false
-    
-    var body : some View{
-        
+    var body: some View{
         ZStack{
-            
-//            NavigationLink(destination: Detail(show: self.$show), isActive: self.$show) {
-//                
-//                Text("")
-//            }
-            
-            VStack(spacing: 10){
+            VStack(spacing: 6){
                 
-                Image(data.image).resizable().frame(width: 150, height: 150)
-                Text(data.name).fontWeight(.semibold)
-                Text(data.price).foregroundColor(.green).fontWeight(.semibold)
-                
-            }.onTapGesture {
-                
-                self.show.toggle()
+                Button(action: {
+                    
+                }){
+                    NavigationLink(destination: ItemView(category: self.data)){
+                        Image(self.data.imageName!)
+                            .resizable()
+                            .frame(width: (UIScreen.main.bounds.width - 45) / 2.9, height: 120)
+                            .cornerRadius(12)
+                    }.buttonStyle(PlainButtonStyle()).padding([.leading], 5)
+                    
+                    
+                }.buttonStyle(PlainButtonStyle())
+                                Text(data.name).fontWeight(.semibold).padding([.leading], 5)
             }
+            .cornerRadius(10)
+            .shadow(radius: 6)
             
-        }
-    }
+        }}
+    
+    
 }
+
 
 struct RecipeCellView : View {
     
-    var data : recipe
+    var data : Item
     
     var body : some View{
         
         VStack(spacing: 10){
             
-            Image(data.image)
-            
+//            Image(data.imageName)
+            AnimatedImage(url: URL(string: data.imageLinks.first!)).resizable().frame(width: 120, height: 120).cornerRadius(20)
             HStack(spacing: 10){
                 
-                Image(data.authorpic)
+                Image("rp1")
                 
                 VStack(alignment: .leading, spacing: 6){
                     
                     Text(data.name).fontWeight(.semibold)
-                    Text(data.author).foregroundColor(.green).fontWeight(.semibold)
+                    Text("somebody").foregroundColor(Color("bg")).fontWeight(.semibold)
                 }
             }
-
+            
         }
     }
 }
@@ -340,17 +334,9 @@ struct RecipeCellView : View {
 
 // sample datas...
 
-var tabs = ["홈","위시리스트","장바구니"]
 
 var categories = ["FootWear","Accessories","HandBags","Clothings","Small Leather"]
 
-struct fresh : Identifiable {
-    
-    var id : Int
-    var name : String
-    var price : String
-    var image : String
-}
 
 struct recipe : Identifiable {
     
@@ -361,16 +347,84 @@ struct recipe : Identifiable {
     var authorpic : String
 }
 
-var freshitems = [
-    fresh(id: 1, name: "비비고만두", price: "6500원/ 팩",image: "f2"),
-    fresh(id: 0, name: "김말이", price: "5000원/ 팩",image: "f1"),
-    fresh(id: 2, name: "커피브레드", price: "3500원 / 팩",image: "f3")
-    
-    
-]
 
 var recipeitems = [
     recipe(id: 0, name: "파스타", author: "데니조",image: "r1",authorpic: "rp1"),
     recipe(id: 1, name: "바나나 라이스", author: "흑자",image: "r2",authorpic: "rp2"),
     recipe(id: 2, name: "라면", author: "null",image: "r3",authorpic: "rp3")
 ]
+
+
+class LoadCategory : ObservableObject{
+    
+    @Published var datas = [Category]()
+    //    @Published var top = [Topdatatype]()
+    @Published var Grid : [Int] = []
+    init() {
+        
+        FirebaseReference(.Category).getDocuments { (snapshot, error) in
+            
+            //            guard let snapshot = snapshot else {
+            //                completion(categoryArray)
+            //                return
+            //            }
+            DispatchQueue.main.async {
+                if error != nil{
+                    return
+                }
+                if !snapshot!.isEmpty {
+                    
+                    for categoryDict in snapshot!.documents {
+                        self.datas.append(Category(_dictionary: categoryDict.data() as NSDictionary))
+                    }
+                    for i in stride(from: 0, to: self.datas.count, by: 2){
+                        
+                        if i != self.datas.count{
+                            print("Grid \(i)")
+                            self.Grid.append(i)
+                            print("data \(self.datas.count)")
+                            
+                        }
+                        
+                    }
+                }
+            }
+            
+            
+            
+            
+        }
+        
+        
+        
+    }
+}
+
+
+class LoadItem : ObservableObject{
+    
+    @Published var datas = [Item]()
+    //    @Published var top = [Topdatatype]()
+    init() {
+        
+        FirebaseReference(.Items).getDocuments { (snapshot, error) in
+            
+            DispatchQueue.main.async {
+                if error != nil{
+                    return
+                }
+                if !snapshot!.isEmpty {
+                    
+                    for itemDict in snapshot!.documents {
+                        
+                        self.datas.append(Item(_dictionary: itemDict.data() as NSDictionary))
+                    }
+                    
+                }
+            }
+        }
+        
+    }
+    
+}
+

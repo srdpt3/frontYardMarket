@@ -44,7 +44,7 @@ struct  LoginHome : View {
     var body: some View {
         VStack {
             
-            Image(systemName: "signature").resizable().frame(width: 140, height: 120)
+//            Image(systemName: "signature").resizable().frame(width: 140, height: 120)
             
             HStack{
                 Button(action: {
@@ -238,7 +238,7 @@ struct Login : View {
                 
             }.background(
                 
-                LinearGradient(gradient: .init(colors: [Color("Color2"),Color("Color")]), startPoint: .leading, endPoint: .trailing)
+                LinearGradient(gradient: .init(colors: [Color("bg"),Color("Color2")]), startPoint: .leading, endPoint: .trailing)
             )
                 .cornerRadius(8)
                 .offset(y: -40)
@@ -332,7 +332,7 @@ struct SignUp : View {
                 
             }.background(
                 
-                LinearGradient(gradient: .init(colors: [Color("Color2"),Color("Color")]), startPoint: .leading, endPoint: .trailing)
+                LinearGradient(gradient: .init(colors: [Color("bg"),Color("Color2")]), startPoint: .leading, endPoint: .trailing)
             )
                 .cornerRadius(8)
                 .offset(y: -40)

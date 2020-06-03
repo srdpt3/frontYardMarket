@@ -53,7 +53,7 @@ struct subMainView : View {
                 }
                 else{
                     
-                    Color.orange
+                    LoginView()
                 }
                 
                 

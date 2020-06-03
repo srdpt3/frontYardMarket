@@ -3,4 +3,115 @@
    uuid = "FAB9DA1F-A14D-46E7-802B-CDB7530E9E32"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4A6CA1E1-5DFB-4451-8F66-C96878F43BA8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FrontYardMarket/SwiftUIView/CategoryView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "Home2"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "4A6CA1E1-5DFB-4451-8F66-C96878F43BA8 - 4dd4e955fff21e59"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FrontYardMarket.Home2.data.getter : Swift.Array&lt;FrontYardMarket.Category&gt;"
+                  moduleName = "FrontYardMarket"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dustinyang/project/iOs/FrontYardMarket/FrontYardMarket/SwiftUIView/CategoryView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "181">
+               </Location>
+               <Location
+                  uuid = "4A6CA1E1-5DFB-4451-8F66-C96878F43BA8 - 45247c4b24906a4d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FrontYardMarket.Home2.data.setter : Swift.Array&lt;FrontYardMarket.Category&gt;"
+                  moduleName = "FrontYardMarket"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dustinyang/project/iOs/FrontYardMarket/FrontYardMarket/SwiftUIView/CategoryView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "4A6CA1E1-5DFB-4451-8F66-C96878F43BA8 - 6f16320d57209d5a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FrontYardMarket.Home2.data.modify : Swift.Array&lt;FrontYardMarket.Category&gt;"
+                  moduleName = "FrontYardMarket"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dustinyang/project/iOs/FrontYardMarket/FrontYardMarket/SwiftUIView/CategoryView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "57">
+               </Location>
+               <Location
+                  uuid = "4A6CA1E1-5DFB-4451-8F66-C96878F43BA8 - c8faab725a951fc0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FrontYardMarket.Home2.data.modify : Swift.Array&lt;FrontYardMarket.Category&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "FrontYardMarket"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dustinyang/project/iOs/FrontYardMarket/FrontYardMarket/SwiftUIView/CategoryView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "4A6CA1E1-5DFB-4451-8F66-C96878F43BA8 - 42320c842f09cb95"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FrontYardMarket.Home2.$data.getter : SwiftUI.Binding&lt;Swift.Array&lt;FrontYardMarket.Category&gt;&gt;"
+                  moduleName = "FrontYardMarket"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dustinyang/project/iOs/FrontYardMarket/FrontYardMarket/SwiftUIView/CategoryView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "215">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "74E1010A-9728-4458-945C-B5BFDB26BAED"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FrontYardMarket/SwiftUIView/CategoryView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

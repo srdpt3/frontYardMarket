@@ -175,7 +175,7 @@ struct CustomPicker : View {
                             .padding(.vertical,10)
                             .frame(width: UIScreen.main.bounds.width / 2)
                     }
-                    .background(Color.red.opacity((self.selected.count != 0) ? 1 : 0.5))
+                    .background(Color("bg").opacity((self.selected.count != 0) ? 1 : 0.5))
                     .clipShape(Capsule())
                     .padding(.bottom)
                     .disabled((self.selected.count != 0) ? false : true)
