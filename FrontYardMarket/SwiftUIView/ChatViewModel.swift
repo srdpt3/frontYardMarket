@@ -25,6 +25,34 @@ class ChatViewModel: ObservableObject {
     @Published var showAlert: Bool = false
     @Published var showImagePicker: Bool = false
    
+    
+    @Published var chatArray: [Chat] = []
+    @Published var isLoading = false
+    var recipientId = ""
+    var listener: ListenerRegistration!
+    
+    func loadChatMessages() {
+        self.chatArray = []
+        self.isLoading = true
+        
+        ChatApi().getChatMessages(withUser: recipientId, onSuccess: { (chatMessages) in
+            if self.chatArray.isEmpty {
+                self.chatArray = chatMessages
+            }
+        }, onError: { (errorMessage) in
+            
+        }, newChatMessage: { (chat) in
+            if !self.chatArray.isEmpty {
+                self.chatArray.append(chat)
+            }
+        }) { (listener) in
+            self.listener = listener
+        }
+        
+
+    }
+    
+    
     func sendTextMessage(recipientId: String, recipientAvatarUrl: String, recipientUsername: String, completed: @escaping() -> Void,  onError: @escaping(_ errorMessage: String) -> Void) {
         if !composedMessage.isEmpty {
             ChatApi().sendMessages(message: composedMessage, recipientId: recipientId, recipientAvatarUrl: recipientAvatarUrl, recipientUsername: recipientUsername, onSuccess: completed, onError: onError)

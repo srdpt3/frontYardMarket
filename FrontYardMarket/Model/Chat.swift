@@ -30,8 +30,9 @@ class Chat {
     var senderId: String
     var username: String
     var date: Double
-    
-    init(_messageId : String, _textMessage: String,_avatarUrl: String, _photoUrl: String,_senderId: String, _username:String, _date : Double) {
+    var type: String
+
+    init(_messageId : String, _textMessage: String,_avatarUrl: String, _photoUrl: String,_senderId: String, _username:String, _date : Double, _type : String) {
         
         messageId = _messageId
         textMessage = _textMessage
@@ -40,8 +41,10 @@ class Chat {
         senderId = _senderId
         username = _username
         date = _date
+        type = _type
         
     }
+    
     
     init(_dictionary: NSDictionary) {
         messageId = _dictionary["messageId"] as! String
@@ -49,11 +52,27 @@ class Chat {
         avatarUrl = _dictionary["avatarUrl"] as! String
         photoUrl = _dictionary["photoUrl"] as! String
         senderId = _dictionary["senderId"] as! String
-        username = _dictionary["username"] as! String
         date = _dictionary["date"] as! Double
+        type = _dictionary["type"] as! String
+        username = _dictionary["username"] as! String
+        
+//        type = "TEXT"
+//        username = "srdpt3@gmail.com"
+
+
         
         
-        
+    }
+    
+    var isCurrentUser: Bool {
+        return MUser.currentId() == senderId
+     }
+    
+    var isPhoto: Bool {
+        return type == "PHOTO"
+    }
+    var isTextMessage: Bool {
+        return type == "TEXT"
     }
     
 }

@@ -7,92 +7,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4A6CA1E1-5DFB-4451-8F66-C96878F43BA8"
-            shouldBeEnabled = "Yes"
+            uuid = "834765C8-5ED0-4B02-BF4E-E799A0EE0E1A"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FrontYardMarket/SwiftUIView/CategoryView.swift"
+            filePath = "FrontYardMarket/Model/Chat.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "Home2"
-            landmarkType = "14">
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "init(_dictionary:)"
+            landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "4A6CA1E1-5DFB-4451-8F66-C96878F43BA8 - 4dd4e955fff21e59"
+                  uuid = "834765C8-5ED0-4B02-BF4E-E799A0EE0E1A - 2c6892ae1783d9e8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "FrontYardMarket.Home2.data.getter : Swift.Array&lt;FrontYardMarket.Category&gt;"
+                  symbolName = "FrontYardMarket.Chat.__allocating_init(_dictionary: __C.NSDictionary) -&gt; FrontYardMarket.Chat"
                   moduleName = "FrontYardMarket"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dustinyang/project/iOs/FrontYardMarket/FrontYardMarket/SwiftUIView/CategoryView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "139"
-                  endingLineNumber = "139"
-                  offsetFromSymbolStart = "181">
-               </Location>
-               <Location
-                  uuid = "4A6CA1E1-5DFB-4451-8F66-C96878F43BA8 - 45247c4b24906a4d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FrontYardMarket.Home2.data.setter : Swift.Array&lt;FrontYardMarket.Category&gt;"
-                  moduleName = "FrontYardMarket"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dustinyang/project/iOs/FrontYardMarket/FrontYardMarket/SwiftUIView/CategoryView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "139"
-                  endingLineNumber = "139"
-                  offsetFromSymbolStart = "180">
-               </Location>
-               <Location
-                  uuid = "4A6CA1E1-5DFB-4451-8F66-C96878F43BA8 - 6f16320d57209d5a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FrontYardMarket.Home2.data.modify : Swift.Array&lt;FrontYardMarket.Category&gt;"
-                  moduleName = "FrontYardMarket"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dustinyang/project/iOs/FrontYardMarket/FrontYardMarket/SwiftUIView/CategoryView.swift"
+                  urlString = "file:///Users/dustinyang/project/iOs/FrontYardMarket/FrontYardMarket/Model/Chat.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "57">
+                  offsetFromSymbolStart = "21">
                </Location>
                <Location
-                  uuid = "4A6CA1E1-5DFB-4451-8F66-C96878F43BA8 - c8faab725a951fc0"
+                  uuid = "834765C8-5ED0-4B02-BF4E-E799A0EE0E1A - 18829d45a7f55010"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "FrontYardMarket.Home2.data.modify : Swift.Array&lt;FrontYardMarket.Category&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  symbolName = "FrontYardMarket.Chat.init(_dictionary: __C.NSDictionary) -&gt; FrontYardMarket.Chat"
                   moduleName = "FrontYardMarket"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dustinyang/project/iOs/FrontYardMarket/FrontYardMarket/SwiftUIView/CategoryView.swift"
+                  urlString = "file:///Users/dustinyang/project/iOs/FrontYardMarket/FrontYardMarket/Model/Chat.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "139"
-                  endingLineNumber = "139"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  uuid = "4A6CA1E1-5DFB-4451-8F66-C96878F43BA8 - 42320c842f09cb95"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FrontYardMarket.Home2.$data.getter : SwiftUI.Binding&lt;Swift.Array&lt;FrontYardMarket.Category&gt;&gt;"
-                  moduleName = "FrontYardMarket"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dustinyang/project/iOs/FrontYardMarket/FrontYardMarket/SwiftUIView/CategoryView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "139"
-                  endingLineNumber = "139"
-                  offsetFromSymbolStart = "215">
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "35">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -100,17 +55,81 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "74E1010A-9728-4458-945C-B5BFDB26BAED"
+            uuid = "6E6445F1-9461-4C0C-88BD-E6145C311F8F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FrontYardMarket/SwiftUIView/CategoryView.swift"
+            filePath = "FrontYardMarket/Helper/ChatApi.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "getChatMessages(withUser:onSuccess:onError:newChatMessage:listener:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1A69FACE-435B-454D-9FA2-EFAFC16B5711"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FrontYardMarket/Model/Chat.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "init(_dictionary:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EE59183E-1EBF-41D0-B5F4-87477890CCE0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FrontYardMarket/Model/Chat.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "init(_dictionary:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2D5B8F02-EC2E-40EC-B6D5-E17A5D7FE631"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FrontYardMarket/Helper/ChatApi.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "getChatMessages(withUser:onSuccess:onError:newChatMessage:listener:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D6F49B95-F935-48BE-AA04-60F2A881A427"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FrontYardMarket/Model/Chat.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "init(_dictionary:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

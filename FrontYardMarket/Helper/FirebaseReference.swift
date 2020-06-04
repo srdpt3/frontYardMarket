@@ -20,5 +20,15 @@ enum FCollectionReference : String{
 
 
 func FirebaseReference(_ collectionReference : FCollectionReference) -> CollectionReference{
-    return Firestore.firestore().collection(collectionReference.rawValue)
+    
+    let settings = FirestoreSettings()
+    settings.isPersistenceEnabled = false
+
+    // Any additional options
+    // ...
+
+    // Enable offline data persistence
+    let db = Firestore.firestore()
+    db.settings = settings
+    return db.collection(collectionReference.rawValue)
 }

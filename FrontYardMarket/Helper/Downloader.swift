@@ -85,7 +85,7 @@ func uploadChatImages(messageId: String, senderId: String, senderUsername: Strin
         }
         storageChatRef.downloadURL { (url, error) in
             if let metaImageUrl = url?.absoluteString {
-                let chat = Chat(_messageId: messageId, _textMessage: "", _avatarUrl: "", _photoUrl: metaImageUrl, _senderId: senderId, _username: senderUsername, _date: Date().timeIntervalSince1970)
+                let chat = Chat(_messageId: messageId, _textMessage: "", _avatarUrl: "", _photoUrl: metaImageUrl, _senderId: senderId, _username: senderUsername, _date: Date().timeIntervalSince1970, _type: "PHOTO")
                 
                 //        guard let dict = try? chatDictionaryFrom(chat) else { return }
                 

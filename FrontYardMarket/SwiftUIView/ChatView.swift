@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+import SDWebImageSwiftUI
 struct ChatView: View {
     //   @Binding var detail : Bool
     
@@ -28,8 +28,8 @@ struct ChatView_Previews: PreviewProvider {
 struct ChatViewSub: View{
     @ObservedObject var chatViewModel = ChatViewModel()
     var recipientId = "1234"
-    var recipientAvatarUrl = ""
-    var recipientUsername = ""
+    var recipientAvatarUrl = "https://t1.daumcdn.net/liveboard/notepet/b145a337a91e4b20a7d6c74f7d4ffbf2.jpg"
+    var recipientUsername = "David"
     
     func sendTextMessage(){
         chatViewModel.sendTextMessage(recipientId: recipientId, recipientAvatarUrl: recipientAvatarUrl, recipientUsername: recipientUsername, completed: {
@@ -64,18 +64,34 @@ struct ChatViewSub: View{
         
         
         VStack{
-            ScrollView{
-                ForEach(0..<10){_ in
-                    VStack(alignment: .leading){
-                        ChatRow(isCurrentUser: true)
-                        ChatRow(isCurrentUser: false)
-                        ChatRow(isCurrentUser:false, isPhoto: true)
-                        
-                        ChatRow(isCurrentUser:true, isPhoto: true)
-                        
-                    }.padding(.top, 20)
-                    
-                }
+//            ScrollView{
+                
+//                if !chatViewModel.chatArray.isEmpty {
+                CustomScrollView(scrollToEnd: true) {
+                    ForEach(self.chatViewModel.chatArray, id: \.messageId) { chat in
+                            VStack(alignment: .leading) {
+                                if chat.isPhoto {
+                                    PhotoMessageRow(chat: chat)
+                                } else {
+                                    TextMessageRow(chat: chat)
+                                }
+                            }.padding(.top, 20)
+                        }
+               
+
+                
+                
+//                ForEach(0..<10){_ in
+//                    VStack(alignment: .leading){
+//                        ChatRow(isCurrentUser: true)
+//                        ChatRow(isCurrentUser: false)
+//                        ChatRow(isCurrentUser:false, isPhoto: true)
+//
+//                        ChatRow(isCurrentUser:true, isPhoto: true)
+//
+//                    }.padding(.top, 20)
+//
+//                }
             }
             Spacer()
             HStack{
@@ -135,54 +151,61 @@ struct ChatViewSub: View{
         .navigationBarTitle(Text("David"), displayMode: .inline)
         .alert(isPresented: $chatViewModel.showAlert) {
             Alert(title: Text("Error"), message: Text(self.chatViewModel.errorString), dismissButton: .default(Text("OK")))
+        }.onAppear {
+            self.chatViewModel.recipientId = self.recipientId
+            self.chatViewModel.loadChatMessages()
+        }.onDisappear {
+            if self.chatViewModel.listener != nil {
+                self.chatViewModel.listener.remove()
+            }
         }
     }
 }
 
 
-struct ChatRow : View {
-    var isCurrentUser = false
-    var isPhoto = false
-    var body: some View {
-        
-        Group{
-            if !isCurrentUser && !isPhoto{
-                HStack(alignment: .top) {
-                    Image("Profile").resizable().scaledToFill().frame(width: 30, height: 30).clipShape(Circle())
-                    Text("hi gasdfasdfasdfasdfasfdasfdasdfasdfasdfuysasdfasdfasdfasfdasfdasfdasfdasdfasfasfd").padding(10).foregroundColor(.black).background(Color("Color-2")).cornerRadius(10).font(.callout).clipShape(msgTail(mymsg: false))
-                }.padding(.leading, 15).padding(.trailing , 50 )
-                
-            }else if !isPhoto{
-                HStack(alignment: .top) {
-                    Spacer(minLength: 50)
-                    Text("asfasfdxxcvzssfsavasfdasdliwjflsjlfkjaskljf kljs aljflak;sjfklawejlkf jaksl  sakljf;lsajdk ").padding(10).foregroundColor(.white).background(Color("bg")).cornerRadius(10).font(.callout).clipShape(msgTail(mymsg: true))
-                }.padding(.trailing , 15 )
-            }
-            
-            if !isCurrentUser && isPhoto{
-                HStack(alignment: .top) {
-                    Image("Profile").resizable().scaledToFill().frame(width: 30, height: 30).clipShape(Circle())
-                    
-                    Image("poster").resizable().scaledToFill().frame(width: 200, height: 200).cornerRadius(10)
-                    Spacer()
-                    
-                }.padding(.leading, 15).padding(.trailing , 50 )
-                
-            }else if isCurrentUser && isPhoto{
-                
-                HStack(alignment: .top) {
-                    Spacer()
-                    Image("tr").resizable().scaledToFill().frame(width: 200, height: 200).cornerRadius(10)
-                }.padding(.trailing , 15 )
-            }
-            
-        }
-        
-        
-        
-        
-    }
-}
+//struct ChatRow : View {
+//    var isCurrentUser = false
+//    var isPhoto = false
+//    var body: some View {
+//
+//        Group{
+//            if !isCurrentUser && !isPhoto{
+//                HStack(alignment: .top) {
+//                    Image("Profile").resizable().scaledToFill().frame(width: 30, height: 30).clipShape(Circle())
+//                    Text("hi gasdfasdfasdfasdfasfdasfdasdfasdfasdfuysasdfasdfasdfasfdasfdasfdasfdasdfasfasfd").padding(10).foregroundColor(.black).background(Color("Color-2")).cornerRadius(10).font(.callout).clipShape(msgTail(mymsg: false))
+//                }.padding(.leading, 15).padding(.trailing , 50 )
+//
+//            }else if !isPhoto{
+//                HStack(alignment: .top) {
+//                    Spacer(minLength: 50)
+//                    Text("asfasfdxxcvzssfsavasfdasdliwjflsjlfkjaskljf kljs aljflak;sjfklawejlkf jaksl  sakljf;lsajdk ").padding(10).foregroundColor(.white).background(Color("bg")).cornerRadius(10).font(.callout).clipShape(msgTail(mymsg: true))
+//                }.padding(.trailing , 15 )
+//            }
+//
+//            if !isCurrentUser && isPhoto{
+//                HStack(alignment: .top) {
+//                    Image("Profile").resizable().scaledToFill().frame(width: 30, height: 30).clipShape(Circle())
+//
+//                    Image("poster").resizable().scaledToFill().frame(width: 200, height: 200).cornerRadius(10)
+//                    Spacer()
+//
+//                }.padding(.leading, 15).padding(.trailing , 50 )
+//
+//            }else if isCurrentUser && isPhoto{
+//
+//                HStack(alignment: .top) {
+//                    Spacer()
+//                    Image("tr").resizable().scaledToFill().frame(width: 200, height: 200).cornerRadius(10)
+//                }.padding(.trailing , 15 )
+//            }
+//
+//        }
+//
+//
+//
+//
+//    }
+//}
 
 
 struct chatTopview : View {
@@ -243,6 +266,91 @@ struct msgTail : Shape {
         
         let path = UIBezierPath(roundedRect: rect, byRoundingCorners: [.topLeft,.topRight,mymsg ? .bottomLeft : .bottomRight], cornerRadii: CGSize(width: 25, height: 25))
         return Path(path.cgPath)
+    }
+}
+
+
+
+
+
+
+struct TextMessageRow: View {
+    var chat: Chat
+    var body: some View {
+        Group {
+            if !chat.isCurrentUser {
+               HStack(alignment: .top) {
+//                    URLImage(URL(string: chat.avatarUrl)!,
+//                    content: {
+//                        $0.image
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fill)
+//                            .clipShape(Circle())
+//                    }).frame(width: 30, height: 30).clipShape(Circle())
+                
+                AnimatedImage(url: URL(string: chat.avatarUrl)).resizable().frame(width: 30, height: 30).clipShape(Circle())
+
+                
+                
+                
+                
+                Text(chat.textMessage).padding(10).foregroundColor(.black).background(Color(red: 237/255, green: 237/255, blue: 237/255)).cornerRadius(10).font(.callout)
+                Spacer()
+                }.padding(.leading, 15).padding(.trailing, 50)
+            } else {
+              HStack(alignment: .top) {
+                     Spacer(minLength: 50)
+                     Text(chat.textMessage).padding(10).foregroundColor(.white).background(Color.blue).cornerRadius(10).font(.callout)
+                }.padding(.trailing, 15)
+            }
+        }
+    }
+}
+
+
+struct PhotoMessageRow: View {
+    var chat: Chat
+    var body: some View {
+        Group {
+            if !chat.isCurrentUser {
+                HStack(alignment: .top) {
+//                    URLImage(URL(string: chat.avatarUrl)!,
+//                                                             content: {
+//                                                                 $0.image
+//                                                                     .resizable()
+//                                                                     .aspectRatio(contentMode: .fill)
+//                                                                     .clipShape(Circle())
+//                                                             }).frame(width: 30, height: 30).clipShape(Circle())
+                    
+                    AnimatedImage(url: URL(string: chat.avatarUrl)).resizable().frame(width: 30, height: 30).clipShape(Circle())
+
+//                    URLImage(URL(string: chat.photoUrl)!,
+//                    content: {
+//                        $0.image
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fill)
+//
+//                    }).frame(width: 200, height: 200).cornerRadius(10)
+                    
+                    AnimatedImage(url: URL(string:chat.photoUrl)).resizable().frame(width: 200, height: 200).cornerRadius(10)
+
+                    Spacer()
+               }.padding(.leading, 15)
+            } else {
+              HStack {
+                    Spacer()
+//                    URLImage(URL(string: chat.photoUrl)!,
+//                    content: {
+//                        $0.image
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fill)
+//
+//                    }).frame(width: 200, height: 200).cornerRadius(10)
+                AnimatedImage(url: URL(string: chat.photoUrl)).resizable().frame(width: 200, height: 200).cornerRadius(10)
+
+                }.padding(.trailing, 15)
+            }
+        }
     }
 }
 

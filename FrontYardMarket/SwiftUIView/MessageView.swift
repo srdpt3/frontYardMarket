@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct MessageView: View {
     
@@ -37,34 +38,52 @@ struct HomeView : View {
 }
 
 struct MessageSubView: View {
+    @ObservedObject var messageViewModel = MessageViewModel()
     
     var body: some View{
         
         
         
         List{
-            ForEach(0..<10){ _ in
+            
+            if !messageViewModel.inboxMessages.isEmpty {
+                
+            }
+            
+            ForEach(messageViewModel.inboxMessages, id: \.id) { inboxMessage in
+                
                 
                 NavigationLink(destination: ChatView()){
-                    HStack{
-                        Image("Profile").resizable().clipShape(Circle()).frame(width: 50, height: 50)
-                        VStack(alignment: .leading, spacing: 5){
-                            Text("David").font(.headline).bold()
-                            Text("asdfasdfasdf").font(.subheadline).lineLimit(2)
+                    HStack {
+
+                        
+                        AnimatedImage(url: URL(string: inboxMessage.avatarUrl)).resizable().frame(width: 50, height: 50).clipShape(Circle())
+
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text(inboxMessage.username).font(.headline).bold()
+                            Text(inboxMessage.lastMessage).font(.subheadline).lineLimit(2)
                         }
                         Spacer()
-                        VStack(spacing: 5){
-                            Text("15:00").bold()
-                            Text("2").padding(8).foregroundColor(.white).background(Color.blue).clipShape(Circle())
+                        VStack(spacing: 5) {
+                            Text(timeAgoSinceDate(Date(timeIntervalSince1970: inboxMessage.date), currentDate: Date(), numericDates: true)).bold().padding(.leading, 15)
+                            
+                            //                                 Text("2").padding(8).background(Color.blue).foregroundColor(Color.white).clipShape(Circle())
                         }
+                        
                     }.padding(10)
                 }
                 
                 
             }
         }.navigationBarTitle(Text("Messages"), displayMode: .inline).navigationBarHidden(true)
-        //            .accentColor(Color("bg"))
-        
+            .onAppear {
+                self.messageViewModel.loadInboxMessages()
+        }
+        .onDisappear {
+            if self.messageViewModel.listener != nil {
+                self.messageViewModel.listener.remove()
+            }
+        }
     }
 }
 

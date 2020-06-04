@@ -21,6 +21,9 @@
 		1103D1EC248479A00068C5A5 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103D1EB2484799F0068C5A5 /* CameraView.swift */; };
 		1103D1EE24847D880068C5A5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103D1ED24847D880068C5A5 /* ImagePicker.swift */; };
 		1103D1F024847DF30068C5A5 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103D1EF24847DF30068C5A5 /* CameraViewModel.swift */; };
+		1103D272248881270068C5A5 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103D271248881260068C5A5 /* MessageViewModel.swift */; };
+		1103D2742488859D0068C5A5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103D2732488859D0068C5A5 /* Extension.swift */; };
+		1103D27C24889F980068C5A5 /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103D27B24889F980068C5A5 /* CustomScrollView.swift */; };
 		11713C5C24761E6100002ACA /* ImageViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11713C5B24761E6100002ACA /* ImageViewCollectionViewCell.swift */; };
 		11A09651246C4D460079762A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A09650246C4D460079762A /* AppDelegate.swift */; };
 		11A09653246C4D460079762A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A09652246C4D460079762A /* SceneDelegate.swift */; };
@@ -96,6 +99,9 @@
 		1103D1EB2484799F0068C5A5 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		1103D1ED24847D880068C5A5 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		1103D1EF24847DF30068C5A5 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		1103D271248881260068C5A5 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
+		1103D2732488859D0068C5A5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		1103D27B24889F980068C5A5 /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
 		11713C5B24761E6100002ACA /* ImageViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		11A0964D246C4D460079762A /* FrontYardMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrontYardMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A09650246C4D460079762A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -247,6 +253,7 @@
 				11A09691246C9A9E0079762A /* Constants.swift */,
 				11A096A92470BDCC0079762A /* Downloader.swift */,
 				11A096AB2470BDEE0079762A /* Reachabilty.swift */,
+				1103D2732488859D0068C5A5 /* Extension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -310,6 +317,8 @@
 				1103D1E52481D9060068C5A5 /* ChatViewModel.swift */,
 				1103D1ED24847D880068C5A5 /* ImagePicker.swift */,
 				1103D1EF24847DF30068C5A5 /* CameraViewModel.swift */,
+				1103D271248881260068C5A5 /* MessageViewModel.swift */,
+				1103D27B24889F980068C5A5 /* CustomScrollView.swift */,
 			);
 			path = SwiftUIView;
 			sourceTree = "<group>";
@@ -579,6 +588,7 @@
 			files = (
 				1103D1E82481E8200068C5A5 /* InboxMessage.swift in Sources */,
 				1103D1F024847DF30068C5A5 /* CameraViewModel.swift in Sources */,
+				1103D2742488859D0068C5A5 /* Extension.swift in Sources */,
 				1103D1DE248197D10068C5A5 /* ChatView.swift in Sources */,
 				11F453782478C82E00A41C50 /* MUser.swift in Sources */,
 				11F453752478C7FA00A41C50 /* FinishRegistrationViewController.swift in Sources */,
@@ -599,6 +609,7 @@
 				1103D1DC248184B80068C5A5 /* MessageView.swift in Sources */,
 				11F4537E247A073000A41C50 /* EditProfileViewController.swift in Sources */,
 				11F452EA2476FB6600A41C50 /* Basket.swift in Sources */,
+				1103D272248881270068C5A5 /* MessageViewModel.swift in Sources */,
 				1103D1D0247F349B0068C5A5 /* ItemDetailView.swift in Sources */,
 				11A0968A246C870E0079762A /* FirebaseReference.swift in Sources */,
 				11A0965B246C4D460079762A /* FrontYardMarket.xcdatamodeld in Sources */,
@@ -613,6 +624,7 @@
 				11A09651246C4D460079762A /* AppDelegate.swift in Sources */,
 				11A09696246CC33F0079762A /* Item.swift in Sources */,
 				11F45389247C31F300A41C50 /* CategoryView.swift in Sources */,
+				1103D27C24889F980068C5A5 /* CustomScrollView.swift in Sources */,
 				11F4538D247DBB6D00A41C50 /* ItemView.swift in Sources */,
 				11F45387247ADDC800A41C50 /* LoginView.swift in Sources */,
 				11A096AA2470BDCC0079762A /* Downloader.swift in Sources */,

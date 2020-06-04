@@ -38,10 +38,7 @@ class InboxMessage {
         username = _dictionary["username"] as! String
         type = _dictionary["type"] as! String
         date = _dictionary["date"] as! Double
-        userId = _dictionary["senderId"] as! String
-        avatarUrl = _dictionary["username"] as! String
-        
-        
-        
+        avatarUrl = _dictionary["avatarUrl"] as! String
+        userId = _dictionary["userId"] as! String
     }
 }
