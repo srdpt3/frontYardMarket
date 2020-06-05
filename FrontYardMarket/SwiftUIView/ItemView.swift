@@ -125,7 +125,6 @@ struct ItemViewHome : View {
 // CardView...
 
 struct CardView : View {
-    @State var show  = false
     
     var data : Item
     var body: some View{
@@ -153,7 +152,7 @@ struct CardView : View {
                     Button(action: {
                                 
                             }) {
-                                NavigationLink(destination:  ItemDetailView(item: self.data, show: self.$show)){
+                                NavigationLink(destination:  ItemDetailView(item: self.data)){
                                     Text(">")
                                         .fontWeight(.bold)
                                         .padding(.vertical,5)

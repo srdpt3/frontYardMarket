@@ -12,10 +12,9 @@ import MapKit
 
 struct ItemDetailView: View {
     @State var item : Item!
-    @Binding var show : Bool
     
     var body: some View {
-        itemDetailHome(item: self.$item, show: self.$show)
+        itemDetailHome(item: self.$item)
     }
 }
 
@@ -35,7 +34,7 @@ struct itemDetailHome : View {
     @State private var centerCoordinate = CLLocationCoordinate2D()
     @State private var locations = [MKPointAnnotation]()
     @Binding var item : Item!
-    @Binding var show : Bool
+//    @Binding var show : Bool
     @Environment(\.presentationMode) var presentation
     
     var body: some View{
@@ -161,7 +160,7 @@ struct itemDetailHome : View {
         }
             //        .edgesIgnoringSafeArea(.all)
             .statusBar(hidden: true)
-            .animation(.default)
+
         
     }
 }

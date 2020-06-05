@@ -43,7 +43,7 @@ struct CategoryMainView : View {
         VStack(spacing: 15){
             HStack(spacing: 12){
                 
-                Image(systemName: "person").renderingMode(.original).resizable().frame(width: 30, height: 30)
+                Image("pic").renderingMode(.original).resizable().frame(width: 30, height: 30).cornerRadius(15)
                 
                 Text(String("Welcome \(self.currentUser!)")).font(.body)
                 
@@ -210,7 +210,7 @@ struct Home2 : View {
 struct HomeBottomView : View {
     @Binding var data : [Category]
     @Binding var items : [Item]
-
+    
     var body : some View{
         
         VStack(spacing: 10){
@@ -236,8 +236,8 @@ struct HomeBottomView : View {
                 HStack(spacing: 15){
                     
                     ForEach(self.data, id: \.id){i in
-//                        FreshCellView(data: i)
-                         Card(data: i)
+                        //                        FreshCellView(data: i)
+                        Card(data: i)
                         //                        Image(i.imageName!).resizable().frame(width: 150, height: 150)
                         
                         
@@ -267,7 +267,7 @@ struct HomeBottomView : View {
                     
                     ForEach(self.items, id: \.id){i in
                         
-                        RecipeCellView(data: i)
+                        HotItemView(data: i)
                     }
                 }
             }
@@ -288,13 +288,18 @@ struct Card : View {
                     NavigationLink(destination: ItemView(category: self.data)){
                         Image(self.data.imageName!)
                             .resizable()
-                            .frame(width: (UIScreen.main.bounds.width - 45) / 2.9, height: 120)
+                            .frame(width: (UIScreen.main.bounds.width - 45) / 2.7, height: 120)
                             .cornerRadius(12)
                     }.buttonStyle(PlainButtonStyle()).padding([.leading], 5)
                     
                     
                 }.buttonStyle(PlainButtonStyle())
-                                Text(data.name).fontWeight(.semibold).padding([.leading], 5)
+                
+                HStack(spacing: 10){
+                    Text(data.name).fontWeight(.semibold).padding([.leading], 5)
+                    
+                }
+                
             }
             .cornerRadius(10)
             .shadow(radius: 6)
@@ -305,7 +310,7 @@ struct Card : View {
 }
 
 
-struct RecipeCellView : View {
+struct HotItemView : View {
     
     var data : Item
     
@@ -313,8 +318,13 @@ struct RecipeCellView : View {
         
         VStack(spacing: 10){
             
-//            Image(data.imageName)
-            AnimatedImage(url: URL(string: data.imageLinks.first!)).resizable().frame(width: 120, height: 120).cornerRadius(20)
+            //            Image(data.imageName)
+            
+            NavigationLink(destination: ItemDetailView(item: self.data)){
+                AnimatedImage(url: URL(string: data.imageLinks.first!)).resizable().frame(width: (UIScreen.main.bounds.width - 45) / 2.7, height: 120).cornerRadius(12)
+            }.buttonStyle(PlainButtonStyle()).padding([.leading], 5)            .cornerRadius(10)
+                .shadow(radius: 6)
+            
             HStack(spacing: 10){
                 
                 Image("rp1")
@@ -323,7 +333,9 @@ struct RecipeCellView : View {
                     
                     Text(data.name).fontWeight(.semibold)
                     Text("somebody").foregroundColor(Color("bg")).fontWeight(.semibold)
-                }
+                    
+                }.padding(.bottom,10)
+                
             }
             
         }
@@ -336,23 +348,6 @@ struct RecipeCellView : View {
 
 
 var categories = ["FootWear","Accessories","HandBags","Clothings","Small Leather"]
-
-
-struct recipe : Identifiable {
-    
-    var id : Int
-    var name : String
-    var author : String
-    var image : String
-    var authorpic : String
-}
-
-
-var recipeitems = [
-    recipe(id: 0, name: "파스타", author: "데니조",image: "r1",authorpic: "rp1"),
-    recipe(id: 1, name: "바나나 라이스", author: "흑자",image: "r2",authorpic: "rp2"),
-    recipe(id: 2, name: "라면", author: "null",image: "r3",authorpic: "rp3")
-]
 
 
 class LoadCategory : ObservableObject{
