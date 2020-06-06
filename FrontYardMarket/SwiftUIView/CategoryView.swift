@@ -237,7 +237,7 @@ struct HomeBottomView : View {
                     
                     ForEach(self.data, id: \.id){i in
                         //                        FreshCellView(data: i)
-                        Card(data: i)
+                        Card(data: i).listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
                         //                        Image(i.imageName!).resizable().frame(width: 150, height: 150)
                         
                         
@@ -267,13 +267,14 @@ struct HomeBottomView : View {
                     
                     ForEach(self.items, id: \.id){i in
                         
-                        HotItemView(data: i)
+                        HotItemView(data: i).listRowInsets(EdgeInsets(top: 16, leading: 0, bottom: 16, trailing: 0))
                     }
                 }
             }
         }
     }
 }
+
 struct Card : View {
     @State var show  = false
     var data : Category
@@ -288,7 +289,7 @@ struct Card : View {
                     NavigationLink(destination: ItemView(category: self.data)){
                         Image(self.data.imageName!)
                             .resizable()
-                            .frame(width: (UIScreen.main.bounds.width - 45) / 2.7, height: 120)
+                            .frame(width: (UIScreen.main.bounds.width - 45) / 2.9, height: 120)
                             .cornerRadius(12)
                     }.buttonStyle(PlainButtonStyle()).padding([.leading], 5)
                     
@@ -296,7 +297,7 @@ struct Card : View {
                 }.buttonStyle(PlainButtonStyle())
                 
                 HStack(spacing: 10){
-                    Text(data.name).fontWeight(.semibold).padding([.leading], 5)
+                    Text(data.name).fontWeight(.semibold)
                     
                 }
                 
@@ -309,7 +310,6 @@ struct Card : View {
     
 }
 
-
 struct HotItemView : View {
     
     var data : Item
@@ -321,7 +321,7 @@ struct HotItemView : View {
             //            Image(data.imageName)
             
             NavigationLink(destination: ItemDetailView(item: self.data)){
-                AnimatedImage(url: URL(string: data.imageLinks.first!)).resizable().frame(width: (UIScreen.main.bounds.width - 45) / 2.7, height: 120).cornerRadius(12)
+                AnimatedImage(url: URL(string: data.imageLinks.first!)).resizable().frame(width: (UIScreen.main.bounds.width - 45) / 2.5, height: 120).cornerRadius(12)
             }.buttonStyle(PlainButtonStyle()).padding([.leading], 5)            .cornerRadius(10)
                 .shadow(radius: 6)
             
